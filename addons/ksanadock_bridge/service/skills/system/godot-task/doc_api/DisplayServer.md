@@ -1,0 +1,293 @@
+## DisplayServer <- Object
+
+**Methods:**
+- accessibility_create_element(window_id: int, role: int) -> RID
+- accessibility_create_sub_element(parent_rid: RID, role: int, insert_pos: int = -1) -> RID
+- accessibility_create_sub_text_edit_elements(parent_rid: RID, shaped_text: RID, min_height: float, insert_pos: int = -1, is_last_line: bool = false) -> RID
+- accessibility_element_get_meta(id: RID) -> Variant
+- accessibility_element_set_meta(id: RID, meta: Variant)
+- accessibility_free_element(id: RID)
+- accessibility_get_window_root(window_id: int) -> RID
+- accessibility_has_element(id: RID) -> bool
+- accessibility_screen_reader_active() -> int
+- accessibility_set_window_focused(window_id: int, focused: bool)
+- accessibility_set_window_rect(window_id: int, rect_out: Rect2, rect_in: Rect2)
+- accessibility_should_increase_contrast() -> int
+- accessibility_should_reduce_animation() -> int
+- accessibility_should_reduce_transparency() -> int
+- accessibility_update_add_action(id: RID, action: int, callable: Callable)
+- accessibility_update_add_child(id: RID, child_id: RID)
+- accessibility_update_add_custom_action(id: RID, action_id: int, action_description: String)
+- accessibility_update_add_related_controls(id: RID, related_id: RID)
+- accessibility_update_add_related_described_by(id: RID, related_id: RID)
+- accessibility_update_add_related_details(id: RID, related_id: RID)
+- accessibility_update_add_related_flow_to(id: RID, related_id: RID)
+- accessibility_update_add_related_labeled_by(id: RID, related_id: RID)
+- accessibility_update_add_related_radio_group(id: RID, related_id: RID)
+- accessibility_update_set_active_descendant(id: RID, other_id: RID)
+- accessibility_update_set_background_color(id: RID, color: Color)
+- accessibility_update_set_bounds(id: RID, p_rect: Rect2)
+- accessibility_update_set_checked(id: RID, checekd: bool)
+- accessibility_update_set_classname(id: RID, classname: String)
+- accessibility_update_set_color_value(id: RID, color: Color)
+- accessibility_update_set_description(id: RID, description: String)
+- accessibility_update_set_error_message(id: RID, other_id: RID)
+- accessibility_update_set_extra_info(id: RID, name: String)
+- accessibility_update_set_flag(id: RID, flag: int, value: bool)
+- accessibility_update_set_focus(id: RID)
+- accessibility_update_set_foreground_color(id: RID, color: Color)
+- accessibility_update_set_in_page_link_target(id: RID, other_id: RID)
+- accessibility_update_set_language(id: RID, language: String)
+- accessibility_update_set_list_item_count(id: RID, size: int)
+- accessibility_update_set_list_item_expanded(id: RID, expanded: bool)
+- accessibility_update_set_list_item_index(id: RID, index: int)
+- accessibility_update_set_list_item_level(id: RID, level: int)
+- accessibility_update_set_list_item_selected(id: RID, selected: bool)
+- accessibility_update_set_list_orientation(id: RID, vertical: bool)
+- accessibility_update_set_live(id: RID, live: int)
+- accessibility_update_set_member_of(id: RID, group_id: RID)
+- accessibility_update_set_name(id: RID, name: String)
+- accessibility_update_set_next_on_line(id: RID, other_id: RID)
+- accessibility_update_set_num_jump(id: RID, jump: float)
+- accessibility_update_set_num_range(id: RID, min: float, max: float)
+- accessibility_update_set_num_step(id: RID, step: float)
+- accessibility_update_set_num_value(id: RID, position: float)
+- accessibility_update_set_placeholder(id: RID, placeholder: String)
+- accessibility_update_set_popup_type(id: RID, popup: int)
+- accessibility_update_set_previous_on_line(id: RID, other_id: RID)
+- accessibility_update_set_role(id: RID, role: int)
+- accessibility_update_set_role_description(id: RID, description: String)
+- accessibility_update_set_scroll_x(id: RID, position: float)
+- accessibility_update_set_scroll_x_range(id: RID, min: float, max: float)
+- accessibility_update_set_scroll_y(id: RID, position: float)
+- accessibility_update_set_scroll_y_range(id: RID, min: float, max: float)
+- accessibility_update_set_shortcut(id: RID, shortcut: String)
+- accessibility_update_set_state_description(id: RID, description: String)
+- accessibility_update_set_table_cell_position(id: RID, row_index: int, column_index: int)
+- accessibility_update_set_table_cell_span(id: RID, row_span: int, column_span: int)
+- accessibility_update_set_table_column_count(id: RID, count: int)
+- accessibility_update_set_table_column_index(id: RID, index: int)
+- accessibility_update_set_table_row_count(id: RID, count: int)
+- accessibility_update_set_table_row_index(id: RID, index: int)
+- accessibility_update_set_text_align(id: RID, align: int)
+- accessibility_update_set_text_decorations(id: RID, underline: bool, strikethrough: bool, overline: bool)
+- accessibility_update_set_text_orientation(id: RID, vertical: bool)
+- accessibility_update_set_text_selection(id: RID, text_start_id: RID, start_char: int, text_end_id: RID, end_char: int)
+- accessibility_update_set_tooltip(id: RID, tooltip: String)
+- accessibility_update_set_transform(id: RID, transform: Transform2D)
+- accessibility_update_set_url(id: RID, url: String)
+- accessibility_update_set_value(id: RID, value: String)
+- beep()
+- clipboard_get() -> String
+- clipboard_get_image() -> Image
+- clipboard_get_primary() -> String
+- clipboard_has() -> bool
+- clipboard_has_image() -> bool
+- clipboard_set(clipboard: String)
+- clipboard_set_primary(clipboard_primary: String)
+- color_picker(callback: Callable) -> bool
+- create_status_indicator(icon: Texture2D, tooltip: String, callback: Callable) -> int
+- cursor_get_shape() -> int
+- cursor_set_custom_image(cursor: Resource, shape: int = 0, hotspot: Vector2 = Vector2(0, 0))
+- cursor_set_shape(shape: int)
+- delete_status_indicator(id: int)
+- dialog_input_text(title: String, description: String, existing_text: String, callback: Callable) -> int
+- dialog_show(title: String, description: String, buttons: PackedStringArray, callback: Callable) -> int
+- enable_for_stealing_focus(process_id: int)
+- file_dialog_show(title: String, current_directory: String, filename: String, show_hidden: bool, mode: int, filters: PackedStringArray, callback: Callable, parent_window_id: int = 0) -> int
+- file_dialog_with_options_show(title: String, current_directory: String, root: String, filename: String, show_hidden: bool, mode: int, filters: PackedStringArray, options: Dictionary[], callback: Callable, parent_window_id: int = 0) -> int
+- force_process_and_drop_events()
+- get_accent_color() -> Color
+- get_base_color() -> Color
+- get_display_cutouts() -> Rect2[]
+- get_display_safe_area() -> Rect2i
+- get_keyboard_focus_screen() -> int
+- get_name() -> String
+- get_primary_screen() -> int
+- get_screen_count() -> int
+- get_screen_from_rect(rect: Rect2) -> int
+- get_swap_cancel_ok() -> bool
+- get_window_at_screen_position(position: Vector2i) -> int
+- get_window_list() -> PackedInt32Array
+- global_menu_add_check_item(menu_root: String, label: String, callback: Callable = Callable(), key_callback: Callable = Callable(), tag: Variant = null, accelerator: int = 0, index: int = -1) -> int
+- global_menu_add_icon_check_item(menu_root: String, icon: Texture2D, label: String, callback: Callable = Callable(), key_callback: Callable = Callable(), tag: Variant = null, accelerator: int = 0, index: int = -1) -> int
+- global_menu_add_icon_item(menu_root: String, icon: Texture2D, label: String, callback: Callable = Callable(), key_callback: Callable = Callable(), tag: Variant = null, accelerator: int = 0, index: int = -1) -> int
+- global_menu_add_icon_radio_check_item(menu_root: String, icon: Texture2D, label: String, callback: Callable = Callable(), key_callback: Callable = Callable(), tag: Variant = null, accelerator: int = 0, index: int = -1) -> int
+- global_menu_add_item(menu_root: String, label: String, callback: Callable = Callable(), key_callback: Callable = Callable(), tag: Variant = null, accelerator: int = 0, index: int = -1) -> int
+- global_menu_add_multistate_item(menu_root: String, label: String, max_states: int, default_state: int, callback: Callable = Callable(), key_callback: Callable = Callable(), tag: Variant = null, accelerator: int = 0, index: int = -1) -> int
+- global_menu_add_radio_check_item(menu_root: String, label: String, callback: Callable = Callable(), key_callback: Callable = Callable(), tag: Variant = null, accelerator: int = 0, index: int = -1) -> int
+- global_menu_add_separator(menu_root: String, index: int = -1) -> int
+- global_menu_add_submenu_item(menu_root: String, label: String, submenu: String, index: int = -1) -> int
+- global_menu_clear(menu_root: String)
+- global_menu_get_item_accelerator(menu_root: String, idx: int) -> int
+- global_menu_get_item_callback(menu_root: String, idx: int) -> Callable
+- global_menu_get_item_count(menu_root: String) -> int
+- global_menu_get_item_icon(menu_root: String, idx: int) -> Texture2D
+- global_menu_get_item_indentation_level(menu_root: String, idx: int) -> int
+- global_menu_get_item_index_from_tag(menu_root: String, tag: Variant) -> int
+- global_menu_get_item_index_from_text(menu_root: String, text: String) -> int
+- global_menu_get_item_key_callback(menu_root: String, idx: int) -> Callable
+- global_menu_get_item_max_states(menu_root: String, idx: int) -> int
+- global_menu_get_item_state(menu_root: String, idx: int) -> int
+- global_menu_get_item_submenu(menu_root: String, idx: int) -> String
+- global_menu_get_item_tag(menu_root: String, idx: int) -> Variant
+- global_menu_get_item_text(menu_root: String, idx: int) -> String
+- global_menu_get_item_tooltip(menu_root: String, idx: int) -> String
+- global_menu_get_system_menu_roots() -> Dictionary
+- global_menu_is_item_checkable(menu_root: String, idx: int) -> bool
+- global_menu_is_item_checked(menu_root: String, idx: int) -> bool
+- global_menu_is_item_disabled(menu_root: String, idx: int) -> bool
+- global_menu_is_item_hidden(menu_root: String, idx: int) -> bool
+- global_menu_is_item_radio_checkable(menu_root: String, idx: int) -> bool
+- global_menu_remove_item(menu_root: String, idx: int)
+- global_menu_set_item_accelerator(menu_root: String, idx: int, keycode: int)
+- global_menu_set_item_callback(menu_root: String, idx: int, callback: Callable)
+- global_menu_set_item_checkable(menu_root: String, idx: int, checkable: bool)
+- global_menu_set_item_checked(menu_root: String, idx: int, checked: bool)
+- global_menu_set_item_disabled(menu_root: String, idx: int, disabled: bool)
+- global_menu_set_item_hidden(menu_root: String, idx: int, hidden: bool)
+- global_menu_set_item_hover_callbacks(menu_root: String, idx: int, callback: Callable)
+- global_menu_set_item_icon(menu_root: String, idx: int, icon: Texture2D)
+- global_menu_set_item_indentation_level(menu_root: String, idx: int, level: int)
+- global_menu_set_item_key_callback(menu_root: String, idx: int, key_callback: Callable)
+- global_menu_set_item_max_states(menu_root: String, idx: int, max_states: int)
+- global_menu_set_item_radio_checkable(menu_root: String, idx: int, checkable: bool)
+- global_menu_set_item_state(menu_root: String, idx: int, state: int)
+- global_menu_set_item_submenu(menu_root: String, idx: int, submenu: String)
+- global_menu_set_item_tag(menu_root: String, idx: int, tag: Variant)
+- global_menu_set_item_text(menu_root: String, idx: int, text: String)
+- global_menu_set_item_tooltip(menu_root: String, idx: int, tooltip: String)
+- global_menu_set_popup_callbacks(menu_root: String, open_callback: Callable, close_callback: Callable)
+- has_additional_outputs() -> bool
+- has_feature(feature: int) -> bool
+- has_hardware_keyboard() -> bool
+- help_set_search_callbacks(search_callback: Callable, action_callback: Callable)
+- ime_get_selection() -> Vector2i
+- ime_get_text() -> String
+- is_dark_mode() -> bool
+- is_dark_mode_supported() -> bool
+- is_in_pip_mode(window_id: int = 0) -> bool
+- is_touchscreen_available() -> bool
+- is_window_transparency_available() -> bool
+- keyboard_get_current_layout() -> int
+- keyboard_get_keycode_from_physical(keycode: int) -> int
+- keyboard_get_label_from_physical(keycode: int) -> int
+- keyboard_get_layout_count() -> int
+- keyboard_get_layout_language(index: int) -> String
+- keyboard_get_layout_name(index: int) -> String
+- keyboard_set_current_layout(index: int)
+- mouse_get_button_state() -> int
+- mouse_get_mode() -> int
+- mouse_get_position() -> Vector2i
+- mouse_set_mode(mouse_mode: int)
+- pip_mode_enter(window_id: int = 0)
+- pip_mode_set_aspect_ratio(numerator: int, denominator: int, window_id: int = 0)
+- pip_mode_set_auto_enter_on_background(auto_enter_on_background: bool, window_id: int = 0)
+- process_events()
+- register_additional_output(object: Object)
+- screen_get_dpi(screen: int = -1) -> int
+- screen_get_image(screen: int = -1) -> Image
+- screen_get_image_rect(rect: Rect2i) -> Image
+- screen_get_max_scale() -> float
+- screen_get_orientation(screen: int = -1) -> int
+- screen_get_pixel(position: Vector2i) -> Color
+- screen_get_position(screen: int = -1) -> Vector2i
+- screen_get_refresh_rate(screen: int = -1) -> float
+- screen_get_scale(screen: int = -1) -> float
+- screen_get_size(screen: int = -1) -> Vector2i
+- screen_get_usable_rect(screen: int = -1) -> Rect2i
+- screen_is_kept_on() -> bool
+- screen_set_keep_on(enable: bool)
+- screen_set_orientation(orientation: int, screen: int = -1)
+- set_hardware_keyboard_connection_change_callback(callable: Callable)
+- set_icon(image: Image)
+- set_native_icon(filename: String)
+- set_system_theme_change_callback(callable: Callable)
+- show_emoji_and_symbol_picker()
+- status_indicator_get_rect(id: int) -> Rect2
+- status_indicator_set_callback(id: int, callback: Callable)
+- status_indicator_set_icon(id: int, icon: Texture2D)
+- status_indicator_set_menu(id: int, menu_rid: RID)
+- status_indicator_set_tooltip(id: int, tooltip: String)
+- tablet_get_current_driver() -> String
+- tablet_get_driver_count() -> int
+- tablet_get_driver_name(idx: int) -> String
+- tablet_set_current_driver(name: String)
+- tts_get_voices() -> Dictionary[]
+- tts_get_voices_for_language(language: String) -> PackedStringArray
+- tts_is_paused() -> bool
+- tts_is_speaking() -> bool
+- tts_pause()
+- tts_resume()
+- tts_set_utterance_callback(event: int, callable: Callable)
+- tts_speak(text: String, voice: String, volume: int = 50, pitch: float = 1.0, rate: float = 1.0, utterance_id: int = 0, interrupt: bool = false)
+- tts_stop()
+- unregister_additional_output(object: Object)
+- virtual_keyboard_get_height() -> int
+- virtual_keyboard_hide()
+- virtual_keyboard_show(existing_text: String, position: Rect2 = Rect2(0, 0, 0, 0), type: int = 0, max_length: int = -1, cursor_start: int = -1, cursor_end: int = -1)
+- warp_mouse(position: Vector2i)
+- window_can_draw(window_id: int = 0) -> bool
+- window_get_active_popup() -> int
+- window_get_attached_instance_id(window_id: int = 0) -> int
+- window_get_current_screen(window_id: int = 0) -> int
+- window_get_flag(flag: int, window_id: int = 0) -> bool
+- window_get_hdr_output_current_max_luminance(window_id: int = 0) -> float
+- window_get_hdr_output_current_reference_luminance(window_id: int = 0) -> float
+- window_get_hdr_output_max_luminance(window_id: int = 0) -> float
+- window_get_hdr_output_reference_luminance(window_id: int = 0) -> float
+- window_get_max_size(window_id: int = 0) -> Vector2i
+- window_get_min_size(window_id: int = 0) -> Vector2i
+- window_get_mode(window_id: int = 0) -> int
+- window_get_native_handle(handle_type: int, window_id: int = 0) -> int
+- window_get_output_max_linear_value(window_id: int = 0) -> float
+- window_get_popup_safe_rect(window: int) -> Rect2i
+- window_get_position(window_id: int = 0) -> Vector2i
+- window_get_position_with_decorations(window_id: int = 0) -> Vector2i
+- window_get_safe_title_margins(window_id: int = 0) -> Vector3i
+- window_get_size(window_id: int = 0) -> Vector2i
+- window_get_size_with_decorations(window_id: int = 0) -> Vector2i
+- window_get_title_size(title: String, window_id: int = 0) -> Vector2i
+- window_get_vsync_mode(window_id: int = 0) -> int
+- window_is_focused(window_id: int = 0) -> bool
+- window_is_hdr_output_enabled(window_id: int = 0) -> bool
+- window_is_hdr_output_requested(window_id: int = 0) -> bool
+- window_is_hdr_output_supported(window_id: int = 0) -> bool
+- window_is_maximize_allowed(window_id: int = 0) -> bool
+- window_maximize_on_title_dbl_click() -> bool
+- window_minimize_on_title_dbl_click() -> bool
+- window_move_to_foreground(window_id: int = 0)
+- window_request_attention(window_id: int = 0)
+- window_request_hdr_output(enable: bool, window_id: int = 0)
+- window_set_color(color: Color)
+- window_set_current_screen(screen: int, window_id: int = 0)
+- window_set_drop_files_callback(callback: Callable, window_id: int = 0)
+- window_set_exclusive(window_id: int, exclusive: bool)
+- window_set_flag(flag: int, enabled: bool, window_id: int = 0)
+- window_set_hdr_output_max_luminance(max_luminance: float, window_id: int = 0)
+- window_set_hdr_output_reference_luminance(reference_luminance: float, window_id: int = 0)
+- window_set_icon(icon: Image, window_id: int = 0)
+- window_set_ime_active(active: bool, window_id: int = 0)
+- window_set_ime_position(position: Vector2i, window_id: int = 0)
+- window_set_input_event_callback(callback: Callable, window_id: int = 0)
+- window_set_input_text_callback(callback: Callable, window_id: int = 0)
+- window_set_max_size(max_size: Vector2i, window_id: int = 0)
+- window_set_min_size(min_size: Vector2i, window_id: int = 0)
+- window_set_mode(mode: int, window_id: int = 0)
+- window_set_mouse_passthrough(region: PackedVector2Array, window_id: int = 0)
+- window_set_popup_safe_rect(window: int, rect: Rect2i)
+- window_set_position(position: Vector2i, window_id: int = 0)
+- window_set_rect_changed_callback(callback: Callable, window_id: int = 0)
+- window_set_size(size: Vector2i, window_id: int = 0)
+- window_set_taskbar_progress_state(state: int, window_id: int = 0)
+- window_set_taskbar_progress_value(value: float, window_id: int = 0)
+- window_set_title(title: String, window_id: int = 0)
+- window_set_transient(window_id: int, parent_window_id: int)
+- window_set_vsync_mode(vsync_mode: int, window_id: int = 0)
+- window_set_window_buttons_offset(offset: Vector2i, window_id: int = 0)
+- window_set_window_event_callback(callback: Callable, window_id: int = 0)
+- window_start_drag(window_id: int = 0)
+- window_start_resize(edge: int, window_id: int = 0)
+
+**Signals:**
+- orientation_changed(orientation: int)

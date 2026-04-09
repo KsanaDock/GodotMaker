@@ -1,0 +1,72 @@
+## FileAccess <- RefCounted
+
+**Props:**
+- big_endian: bool
+
+**Methods:**
+- close()
+- create_temp(mode_flags: int, prefix: String = "", extension: String = "", keep: bool = false) -> FileAccess
+- eof_reached() -> bool
+- file_exists(path: String) -> bool
+- flush()
+- get_8() -> int
+- get_16() -> int
+- get_32() -> int
+- get_64() -> int
+- get_access_time(file: String) -> int
+- get_as_text() -> String
+- get_buffer(length: int) -> PackedByteArray
+- get_csv_line(delim: String = ",") -> PackedStringArray
+- get_double() -> float
+- get_error() -> int
+- get_extended_attribute(file: String, attribute_name: String) -> PackedByteArray
+- get_extended_attribute_string(file: String, attribute_name: String) -> String
+- get_extended_attributes_list(file: String) -> PackedStringArray
+- get_file_as_bytes(path: String) -> PackedByteArray
+- get_file_as_string(path: String) -> String
+- get_float() -> float
+- get_half() -> float
+- get_hidden_attribute(file: String) -> bool
+- get_length() -> int
+- get_line() -> String
+- get_md5(path: String) -> String
+- get_modified_time(file: String) -> int
+- get_open_error() -> int
+- get_pascal_string() -> String
+- get_path() -> String
+- get_path_absolute() -> String
+- get_position() -> int
+- get_read_only_attribute(file: String) -> bool
+- get_real() -> float
+- get_sha256(path: String) -> String
+- get_size(file: String) -> int
+- get_unix_permissions(file: String) -> int
+- get_var(allow_objects: bool = false) -> Variant
+- is_open() -> bool
+- open(path: String, flags: int) -> FileAccess
+- open_compressed(path: String, mode_flags: int, compression_mode: int = 0) -> FileAccess
+- open_encrypted(path: String, mode_flags: int, key: PackedByteArray, iv: PackedByteArray = PackedByteArray()) -> FileAccess
+- open_encrypted_with_pass(path: String, mode_flags: int, pass: String) -> FileAccess
+- remove_extended_attribute(file: String, attribute_name: String) -> int
+- resize(length: int) -> int
+- seek(position: int)
+- seek_end(position: int = 0)
+- set_extended_attribute(file: String, attribute_name: String, data: PackedByteArray) -> int
+- set_extended_attribute_string(file: String, attribute_name: String, data: String) -> int
+- set_hidden_attribute(file: String, hidden: bool) -> int
+- set_read_only_attribute(file: String, ro: bool) -> int
+- set_unix_permissions(file: String, permissions: int) -> int
+- store_8(value: int) -> bool
+- store_16(value: int) -> bool
+- store_32(value: int) -> bool
+- store_64(value: int) -> bool
+- store_buffer(buffer: PackedByteArray) -> bool
+- store_csv_line(values: PackedStringArray, delim: String = ",") -> bool
+- store_double(value: float) -> bool
+- store_float(value: float) -> bool
+- store_half(value: float) -> bool
+- store_line(line: String) -> bool
+- store_pascal_string(string: String) -> bool
+- store_real(value: float) -> bool
+- store_string(string: String) -> bool
+- store_var(value: Variant, full_objects: bool = false) -> bool

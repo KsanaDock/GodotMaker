@@ -1,0 +1,74 @@
+## LineEdit <- Control
+
+**Props:**
+- alignment: int = 0
+- backspace_deletes_composite_character_enabled: bool = false
+- caret_blink: bool = false
+- caret_blink_interval: float = 0.65
+- caret_column: int = 0
+- caret_force_displayed: bool = false
+- caret_mid_grapheme: bool = false
+- clear_button_enabled: bool = false
+- context_menu_enabled: bool = true
+- deselect_on_focus_loss_enabled: bool = true
+- drag_and_drop_selection_enabled: bool = true
+- draw_control_chars: bool = false
+- editable: bool = true
+- emoji_menu_enabled: bool = true
+- expand_to_text_length: bool = false
+- flat: bool = false
+- focus_mode: int = 2
+- icon_expand_mode: int = 0
+- keep_editing_on_text_submit: bool = false
+- language: String = ""
+- max_length: int = 0
+- middle_mouse_paste_enabled: bool = true
+- mouse_default_cursor_shape: int = 1
+- placeholder_text: String = ""
+- right_icon: Texture2D
+- right_icon_scale: float = 1.0
+- secret: bool = false
+- secret_character: String = "•"
+- select_all_on_focus: bool = false
+- selecting_enabled: bool = true
+- shortcut_keys_enabled: bool = true
+- structured_text_bidi_override: int = 0
+- structured_text_bidi_override_options: Array = []
+- text: String = ""
+- text_direction: int = 0
+- virtual_keyboard_enabled: bool = true
+- virtual_keyboard_show_on_focus: bool = true
+- virtual_keyboard_type: int = 0
+
+**Methods:**
+- apply_ime()
+- cancel_ime()
+- clear()
+- delete_char_at_caret()
+- delete_text(from_column: int, to_column: int)
+- deselect()
+- edit(hide_focus: bool = false)
+- get_menu() -> PopupMenu
+- get_next_composite_character_column(column: int) -> int
+- get_previous_composite_character_column(column: int) -> int
+- get_scroll_offset() -> float
+- get_selected_text() -> String
+- get_selection_from_column() -> int
+- get_selection_to_column() -> int
+- has_ime_text() -> bool
+- has_redo() -> bool
+- has_selection() -> bool
+- has_undo() -> bool
+- insert_text_at_caret(text: String)
+- is_editing() -> bool
+- is_menu_visible() -> bool
+- menu_option(option: int)
+- select(from: int = 0, to: int = -1)
+- select_all()
+- unedit()
+
+**Signals:**
+- editing_toggled(toggled_on: bool)
+- text_change_rejected(rejected_substring: String)
+- text_changed(new_text: String)
+- text_submitted(new_text: String)

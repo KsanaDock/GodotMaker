@@ -1,0 +1,62 @@
+## EditorPlugin <- Node
+
+**Methods:**
+- add_autoload_singleton(name: String, path: String)
+- add_context_menu_plugin(slot: int, plugin: EditorContextMenuPlugin)
+- add_control_to_bottom_panel(control: Control, title: String, shortcut: Shortcut = null) -> Button
+- add_control_to_container(container: int, control: Control)
+- add_control_to_dock(slot: int, control: Control, shortcut: Shortcut = null)
+- add_custom_type(type: String, base: String, script: Script, icon: Texture2D)
+- add_debugger_plugin(script: EditorDebuggerPlugin)
+- add_dock(dock: EditorDock)
+- add_export_platform(platform: EditorExportPlatform)
+- add_export_plugin(plugin: EditorExportPlugin)
+- add_import_plugin(importer: EditorImportPlugin, first_priority: bool = false)
+- add_inspector_plugin(plugin: EditorInspectorPlugin)
+- add_node_3d_gizmo_plugin(plugin: EditorNode3DGizmoPlugin)
+- add_resource_conversion_plugin(plugin: EditorResourceConversionPlugin)
+- add_scene_format_importer_plugin(scene_format_importer: EditorSceneFormatImporter, first_priority: bool = false)
+- add_scene_post_import_plugin(scene_import_plugin: EditorScenePostImportPlugin, first_priority: bool = false)
+- add_tool_menu_item(name: String, callable: Callable)
+- add_tool_submenu_item(name: String, submenu: PopupMenu)
+- add_translation_parser_plugin(parser: EditorTranslationParserPlugin)
+- add_undo_redo_inspector_hook_callback(callable: Callable)
+- get_editor_interface() -> EditorInterface
+- get_export_as_menu() -> PopupMenu
+- get_plugin_version() -> String
+- get_script_create_dialog() -> ScriptCreateDialog
+- get_undo_redo() -> EditorUndoRedoManager
+- hide_bottom_panel()
+- make_bottom_panel_item_visible(item: Control)
+- queue_save_layout()
+- remove_autoload_singleton(name: String)
+- remove_context_menu_plugin(plugin: EditorContextMenuPlugin)
+- remove_control_from_bottom_panel(control: Control)
+- remove_control_from_container(container: int, control: Control)
+- remove_control_from_docks(control: Control)
+- remove_custom_type(type: String)
+- remove_debugger_plugin(script: EditorDebuggerPlugin)
+- remove_dock(dock: EditorDock)
+- remove_export_platform(platform: EditorExportPlatform)
+- remove_export_plugin(plugin: EditorExportPlugin)
+- remove_import_plugin(importer: EditorImportPlugin)
+- remove_inspector_plugin(plugin: EditorInspectorPlugin)
+- remove_node_3d_gizmo_plugin(plugin: EditorNode3DGizmoPlugin)
+- remove_resource_conversion_plugin(plugin: EditorResourceConversionPlugin)
+- remove_scene_format_importer_plugin(scene_format_importer: EditorSceneFormatImporter)
+- remove_scene_post_import_plugin(scene_import_plugin: EditorScenePostImportPlugin)
+- remove_tool_menu_item(name: String)
+- remove_translation_parser_plugin(parser: EditorTranslationParserPlugin)
+- remove_undo_redo_inspector_hook_callback(callable: Callable)
+- set_dock_tab_icon(control: Control, icon: Texture2D)
+- set_force_draw_over_forwarding_enabled()
+- set_input_event_forwarding_always_enabled()
+- update_overlays() -> int
+
+**Signals:**
+- main_screen_changed(screen_name: String)
+- project_settings_changed
+- resource_saved(resource: Resource)
+- scene_changed(scene_root: Node)
+- scene_closed(filepath: String)
+- scene_saved(filepath: String)

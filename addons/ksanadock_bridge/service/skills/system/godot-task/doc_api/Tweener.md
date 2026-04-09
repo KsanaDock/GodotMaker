@@ -1,0 +1,4 @@
+## Tweener <- RefCounted
+
+**Signals:**
+- finished

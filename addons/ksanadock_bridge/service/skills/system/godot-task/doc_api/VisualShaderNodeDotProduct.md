@@ -1,0 +1,1 @@
+## VisualShaderNodeDotProduct <- VisualShaderNode

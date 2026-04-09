@@ -1,0 +1,1 @@
+## VisualShaderNodeLinearSceneDepth <- VisualShaderNode

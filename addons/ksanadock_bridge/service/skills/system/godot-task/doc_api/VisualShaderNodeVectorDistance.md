@@ -1,0 +1,1 @@
+## VisualShaderNodeVectorDistance <- VisualShaderNodeVectorBase

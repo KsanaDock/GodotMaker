@@ -1,0 +1,57 @@
+## Object
+
+**Methods:**
+- add_user_signal(signal: String, arguments: Array = [])
+- call(method: StringName) -> Variant
+- call_deferred(method: StringName) -> Variant
+- callv(method: StringName, arg_array: Array) -> Variant
+- can_translate_messages() -> bool
+- cancel_free()
+- connect(signal: StringName, callable: Callable, flags: int = 0) -> int
+- disconnect(signal: StringName, callable: Callable)
+- emit_signal(signal: StringName) -> int
+- free()
+- get(property: StringName) -> Variant
+- get_class() -> String
+- get_incoming_connections() -> Dictionary[]
+- get_indexed(property_path: NodePath) -> Variant
+- get_instance_id() -> int
+- get_meta(name: StringName, default: Variant = null) -> Variant
+- get_meta_list() -> StringName[]
+- get_method_argument_count(method: StringName) -> int
+- get_method_list() -> Dictionary[]
+- get_property_list() -> Dictionary[]
+- get_script() -> Variant
+- get_signal_connection_list(signal: StringName) -> Dictionary[]
+- get_signal_list() -> Dictionary[]
+- get_translation_domain() -> StringName
+- has_connections(signal: StringName) -> bool
+- has_meta(name: StringName) -> bool
+- has_method(method: StringName) -> bool
+- has_signal(signal: StringName) -> bool
+- has_user_signal(signal: StringName) -> bool
+- is_blocking_signals() -> bool
+- is_class(class: String) -> bool
+- is_connected(signal: StringName, callable: Callable) -> bool
+- is_queued_for_deletion() -> bool
+- notification(what: int, reversed: bool = false)
+- notify_property_list_changed()
+- property_can_revert(property: StringName) -> bool
+- property_get_revert(property: StringName) -> Variant
+- remove_meta(name: StringName)
+- remove_user_signal(signal: StringName)
+- set(property: StringName, value: Variant)
+- set_block_signals(enable: bool)
+- set_deferred(property: StringName, value: Variant)
+- set_indexed(property_path: NodePath, value: Variant)
+- set_message_translation(enable: bool)
+- set_meta(name: StringName, value: Variant)
+- set_script(script: Variant)
+- set_translation_domain(domain: StringName)
+- to_string() -> String
+- tr(message: StringName, context: StringName = &"") -> String
+- tr_n(message: StringName, plural_message: StringName, n: int, context: StringName = &"") -> String
+
+**Signals:**
+- property_list_changed
+- script_changed

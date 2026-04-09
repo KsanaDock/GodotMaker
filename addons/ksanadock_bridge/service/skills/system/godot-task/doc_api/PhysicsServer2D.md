@@ -1,0 +1,122 @@
+## PhysicsServer2D <- Object
+
+**Methods:**
+- area_add_shape(area: RID, shape: RID, transform: Transform2D = Transform2D(1, 0, 0, 1, 0, 0), disabled: bool = false)
+- area_attach_canvas_instance_id(area: RID, id: int)
+- area_attach_object_instance_id(area: RID, id: int)
+- area_clear_shapes(area: RID)
+- area_create() -> RID
+- area_get_canvas_instance_id(area: RID) -> int
+- area_get_collision_layer(area: RID) -> int
+- area_get_collision_mask(area: RID) -> int
+- area_get_object_instance_id(area: RID) -> int
+- area_get_param(area: RID, param: int) -> Variant
+- area_get_shape(area: RID, shape_idx: int) -> RID
+- area_get_shape_count(area: RID) -> int
+- area_get_shape_transform(area: RID, shape_idx: int) -> Transform2D
+- area_get_space(area: RID) -> RID
+- area_get_transform(area: RID) -> Transform2D
+- area_remove_shape(area: RID, shape_idx: int)
+- area_set_area_monitor_callback(area: RID, callback: Callable)
+- area_set_collision_layer(area: RID, layer: int)
+- area_set_collision_mask(area: RID, mask: int)
+- area_set_monitor_callback(area: RID, callback: Callable)
+- area_set_monitorable(area: RID, monitorable: bool)
+- area_set_param(area: RID, param: int, value: Variant)
+- area_set_shape(area: RID, shape_idx: int, shape: RID)
+- area_set_shape_disabled(area: RID, shape_idx: int, disabled: bool)
+- area_set_shape_transform(area: RID, shape_idx: int, transform: Transform2D)
+- area_set_space(area: RID, space: RID)
+- area_set_transform(area: RID, transform: Transform2D)
+- body_add_collision_exception(body: RID, excepted_body: RID)
+- body_add_constant_central_force(body: RID, force: Vector2)
+- body_add_constant_force(body: RID, force: Vector2, position: Vector2 = Vector2(0, 0))
+- body_add_constant_torque(body: RID, torque: float)
+- body_add_shape(body: RID, shape: RID, transform: Transform2D = Transform2D(1, 0, 0, 1, 0, 0), disabled: bool = false)
+- body_apply_central_force(body: RID, force: Vector2)
+- body_apply_central_impulse(body: RID, impulse: Vector2)
+- body_apply_force(body: RID, force: Vector2, position: Vector2 = Vector2(0, 0))
+- body_apply_impulse(body: RID, impulse: Vector2, position: Vector2 = Vector2(0, 0))
+- body_apply_torque(body: RID, torque: float)
+- body_apply_torque_impulse(body: RID, impulse: float)
+- body_attach_canvas_instance_id(body: RID, id: int)
+- body_attach_object_instance_id(body: RID, id: int)
+- body_clear_shapes(body: RID)
+- body_create() -> RID
+- body_get_canvas_instance_id(body: RID) -> int
+- body_get_collision_layer(body: RID) -> int
+- body_get_collision_mask(body: RID) -> int
+- body_get_collision_priority(body: RID) -> float
+- body_get_constant_force(body: RID) -> Vector2
+- body_get_constant_torque(body: RID) -> float
+- body_get_continuous_collision_detection_mode(body: RID) -> int
+- body_get_direct_state(body: RID) -> PhysicsDirectBodyState2D
+- body_get_max_contacts_reported(body: RID) -> int
+- body_get_mode(body: RID) -> int
+- body_get_object_instance_id(body: RID) -> int
+- body_get_param(body: RID, param: int) -> Variant
+- body_get_shape(body: RID, shape_idx: int) -> RID
+- body_get_shape_count(body: RID) -> int
+- body_get_shape_transform(body: RID, shape_idx: int) -> Transform2D
+- body_get_space(body: RID) -> RID
+- body_get_state(body: RID, state: int) -> Variant
+- body_is_omitting_force_integration(body: RID) -> bool
+- body_remove_collision_exception(body: RID, excepted_body: RID)
+- body_remove_shape(body: RID, shape_idx: int)
+- body_reset_mass_properties(body: RID)
+- body_set_axis_velocity(body: RID, axis_velocity: Vector2)
+- body_set_collision_layer(body: RID, layer: int)
+- body_set_collision_mask(body: RID, mask: int)
+- body_set_collision_priority(body: RID, priority: float)
+- body_set_constant_force(body: RID, force: Vector2)
+- body_set_constant_torque(body: RID, torque: float)
+- body_set_continuous_collision_detection_mode(body: RID, mode: int)
+- body_set_force_integration_callback(body: RID, callable: Callable, userdata: Variant = null)
+- body_set_max_contacts_reported(body: RID, amount: int)
+- body_set_mode(body: RID, mode: int)
+- body_set_omit_force_integration(body: RID, enable: bool)
+- body_set_param(body: RID, param: int, value: Variant)
+- body_set_shape(body: RID, shape_idx: int, shape: RID)
+- body_set_shape_as_one_way_collision(body: RID, shape_idx: int, enable: bool, margin: float, direction: Vector2 = Vector2(0, 1))
+- body_set_shape_disabled(body: RID, shape_idx: int, disabled: bool)
+- body_set_shape_transform(body: RID, shape_idx: int, transform: Transform2D)
+- body_set_space(body: RID, space: RID)
+- body_set_state(body: RID, state: int, value: Variant)
+- body_set_state_sync_callback(body: RID, callable: Callable)
+- body_test_motion(body: RID, parameters: PhysicsTestMotionParameters2D, result: PhysicsTestMotionResult2D = null) -> bool
+- capsule_shape_create() -> RID
+- circle_shape_create() -> RID
+- concave_polygon_shape_create() -> RID
+- convex_polygon_shape_create() -> RID
+- damped_spring_joint_get_param(joint: RID, param: int) -> float
+- damped_spring_joint_set_param(joint: RID, param: int, value: float)
+- free_rid(rid: RID)
+- get_process_info(process_info: int) -> int
+- joint_clear(joint: RID)
+- joint_create() -> RID
+- joint_disable_collisions_between_bodies(joint: RID, disable: bool)
+- joint_get_param(joint: RID, param: int) -> float
+- joint_get_type(joint: RID) -> int
+- joint_is_disabled_collisions_between_bodies(joint: RID) -> bool
+- joint_make_damped_spring(joint: RID, anchor_a: Vector2, anchor_b: Vector2, body_a: RID, body_b: RID = RID())
+- joint_make_groove(joint: RID, groove1_a: Vector2, groove2_a: Vector2, anchor_b: Vector2, body_a: RID = RID(), body_b: RID = RID())
+- joint_make_pin(joint: RID, anchor: Vector2, body_a: RID, body_b: RID = RID())
+- joint_set_param(joint: RID, param: int, value: float)
+- pin_joint_get_flag(joint: RID, flag: int) -> bool
+- pin_joint_get_param(joint: RID, param: int) -> float
+- pin_joint_set_flag(joint: RID, flag: int, enabled: bool)
+- pin_joint_set_param(joint: RID, param: int, value: float)
+- rectangle_shape_create() -> RID
+- segment_shape_create() -> RID
+- separation_ray_shape_create() -> RID
+- set_active(active: bool)
+- shape_get_data(shape: RID) -> Variant
+- shape_get_type(shape: RID) -> int
+- shape_set_data(shape: RID, data: Variant)
+- space_create() -> RID
+- space_get_direct_state(space: RID) -> PhysicsDirectSpaceState2D
+- space_get_param(space: RID, param: int) -> float
+- space_is_active(space: RID) -> bool
+- space_set_active(space: RID, active: bool)
+- space_set_param(space: RID, param: int, value: float)
+- world_boundary_shape_create() -> RID

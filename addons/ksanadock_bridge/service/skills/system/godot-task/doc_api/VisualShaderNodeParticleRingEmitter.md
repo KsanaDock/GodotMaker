@@ -1,0 +1,1 @@
+## VisualShaderNodeParticleRingEmitter <- VisualShaderNodeParticleEmitter

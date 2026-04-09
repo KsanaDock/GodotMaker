@@ -1,0 +1,247 @@
+## TextServer <- RefCounted
+
+**Methods:**
+- create_font() -> RID
+- create_font_linked_variation(font_rid: RID) -> RID
+- create_shaped_text(direction: int = 0, orientation: int = 0) -> RID
+- draw_hex_code_box(canvas: RID, size: int, pos: Vector2, index: int, color: Color)
+- font_clear_glyphs(font_rid: RID, size: Vector2i)
+- font_clear_kerning_map(font_rid: RID, size: int)
+- font_clear_size_cache(font_rid: RID)
+- font_clear_system_fallback_cache()
+- font_clear_textures(font_rid: RID, size: Vector2i)
+- font_draw_glyph(font_rid: RID, canvas: RID, size: int, pos: Vector2, index: int, color: Color = Color(1, 1, 1, 1), oversampling: float = 0.0)
+- font_draw_glyph_outline(font_rid: RID, canvas: RID, size: int, outline_size: int, pos: Vector2, index: int, color: Color = Color(1, 1, 1, 1), oversampling: float = 0.0)
+- font_get_antialiasing(font_rid: RID) -> int
+- font_get_ascent(font_rid: RID, size: int) -> float
+- font_get_baseline_offset(font_rid: RID) -> float
+- font_get_char_from_glyph_index(font_rid: RID, size: int, glyph_index: int) -> int
+- font_get_descent(font_rid: RID, size: int) -> float
+- font_get_disable_embedded_bitmaps(font_rid: RID) -> bool
+- font_get_embolden(font_rid: RID) -> float
+- font_get_face_count(font_rid: RID) -> int
+- font_get_face_index(font_rid: RID) -> int
+- font_get_fixed_size(font_rid: RID) -> int
+- font_get_fixed_size_scale_mode(font_rid: RID) -> int
+- font_get_generate_mipmaps(font_rid: RID) -> bool
+- font_get_global_oversampling() -> float
+- font_get_glyph_advance(font_rid: RID, size: int, glyph: int) -> Vector2
+- font_get_glyph_contours(font: RID, size: int, index: int) -> Dictionary
+- font_get_glyph_index(font_rid: RID, size: int, char: int, variation_selector: int) -> int
+- font_get_glyph_list(font_rid: RID, size: Vector2i) -> PackedInt32Array
+- font_get_glyph_offset(font_rid: RID, size: Vector2i, glyph: int) -> Vector2
+- font_get_glyph_size(font_rid: RID, size: Vector2i, glyph: int) -> Vector2
+- font_get_glyph_texture_idx(font_rid: RID, size: Vector2i, glyph: int) -> int
+- font_get_glyph_texture_rid(font_rid: RID, size: Vector2i, glyph: int) -> RID
+- font_get_glyph_texture_size(font_rid: RID, size: Vector2i, glyph: int) -> Vector2
+- font_get_glyph_uv_rect(font_rid: RID, size: Vector2i, glyph: int) -> Rect2
+- font_get_hinting(font_rid: RID) -> int
+- font_get_keep_rounding_remainders(font_rid: RID) -> bool
+- font_get_kerning(font_rid: RID, size: int, glyph_pair: Vector2i) -> Vector2
+- font_get_kerning_list(font_rid: RID, size: int) -> Vector2i[]
+- font_get_language_support_override(font_rid: RID, language: String) -> bool
+- font_get_language_support_overrides(font_rid: RID) -> PackedStringArray
+- font_get_msdf_pixel_range(font_rid: RID) -> int
+- font_get_msdf_size(font_rid: RID) -> int
+- font_get_name(font_rid: RID) -> String
+- font_get_opentype_feature_overrides(font_rid: RID) -> Dictionary
+- font_get_ot_name_strings(font_rid: RID) -> Dictionary
+- font_get_oversampling(font_rid: RID) -> float
+- font_get_palette_colors(font_rid: RID, index: int) -> PackedColorArray
+- font_get_palette_count(font_rid: RID) -> int
+- font_get_palette_custom_colors(font_rid: RID) -> PackedColorArray
+- font_get_palette_name(font_rid: RID, index: int) -> String
+- font_get_scale(font_rid: RID, size: int) -> float
+- font_get_script_support_override(font_rid: RID, script: String) -> bool
+- font_get_script_support_overrides(font_rid: RID) -> PackedStringArray
+- font_get_size_cache_info(font_rid: RID) -> Dictionary[]
+- font_get_size_cache_list(font_rid: RID) -> Vector2i[]
+- font_get_spacing(font_rid: RID, spacing: int) -> int
+- font_get_stretch(font_rid: RID) -> int
+- font_get_style(font_rid: RID) -> int
+- font_get_style_name(font_rid: RID) -> String
+- font_get_subpixel_positioning(font_rid: RID) -> int
+- font_get_supported_chars(font_rid: RID) -> String
+- font_get_supported_glyphs(font_rid: RID) -> PackedInt32Array
+- font_get_texture_count(font_rid: RID, size: Vector2i) -> int
+- font_get_texture_image(font_rid: RID, size: Vector2i, texture_index: int) -> Image
+- font_get_texture_offsets(font_rid: RID, size: Vector2i, texture_index: int) -> PackedInt32Array
+- font_get_transform(font_rid: RID) -> Transform2D
+- font_get_underline_position(font_rid: RID, size: int) -> float
+- font_get_underline_thickness(font_rid: RID, size: int) -> float
+- font_get_used_palette(font_rid: RID) -> int
+- font_get_variation_coordinates(font_rid: RID) -> Dictionary
+- font_get_weight(font_rid: RID) -> int
+- font_has_char(font_rid: RID, char: int) -> bool
+- font_is_allow_system_fallback(font_rid: RID) -> bool
+- font_is_force_autohinter(font_rid: RID) -> bool
+- font_is_language_supported(font_rid: RID, language: String) -> bool
+- font_is_modulate_color_glyphs(font_rid: RID) -> bool
+- font_is_multichannel_signed_distance_field(font_rid: RID) -> bool
+- font_is_script_supported(font_rid: RID, script: String) -> bool
+- font_remove_glyph(font_rid: RID, size: Vector2i, glyph: int)
+- font_remove_kerning(font_rid: RID, size: int, glyph_pair: Vector2i)
+- font_remove_language_support_override(font_rid: RID, language: String)
+- font_remove_script_support_override(font_rid: RID, script: String)
+- font_remove_size_cache(font_rid: RID, size: Vector2i)
+- font_remove_texture(font_rid: RID, size: Vector2i, texture_index: int)
+- font_render_glyph(font_rid: RID, size: Vector2i, index: int)
+- font_render_range(font_rid: RID, size: Vector2i, start: int, end: int)
+- font_set_allow_system_fallback(font_rid: RID, allow_system_fallback: bool)
+- font_set_antialiasing(font_rid: RID, antialiasing: int)
+- font_set_ascent(font_rid: RID, size: int, ascent: float)
+- font_set_baseline_offset(font_rid: RID, baseline_offset: float)
+- font_set_data(font_rid: RID, data: PackedByteArray)
+- font_set_descent(font_rid: RID, size: int, descent: float)
+- font_set_disable_embedded_bitmaps(font_rid: RID, disable_embedded_bitmaps: bool)
+- font_set_embolden(font_rid: RID, strength: float)
+- font_set_face_index(font_rid: RID, face_index: int)
+- font_set_fixed_size(font_rid: RID, fixed_size: int)
+- font_set_fixed_size_scale_mode(font_rid: RID, fixed_size_scale_mode: int)
+- font_set_force_autohinter(font_rid: RID, force_autohinter: bool)
+- font_set_generate_mipmaps(font_rid: RID, generate_mipmaps: bool)
+- font_set_global_oversampling(oversampling: float)
+- font_set_glyph_advance(font_rid: RID, size: int, glyph: int, advance: Vector2)
+- font_set_glyph_offset(font_rid: RID, size: Vector2i, glyph: int, offset: Vector2)
+- font_set_glyph_size(font_rid: RID, size: Vector2i, glyph: int, gl_size: Vector2)
+- font_set_glyph_texture_idx(font_rid: RID, size: Vector2i, glyph: int, texture_idx: int)
+- font_set_glyph_uv_rect(font_rid: RID, size: Vector2i, glyph: int, uv_rect: Rect2)
+- font_set_hinting(font_rid: RID, hinting: int)
+- font_set_keep_rounding_remainders(font_rid: RID, keep_rounding_remainders: bool)
+- font_set_kerning(font_rid: RID, size: int, glyph_pair: Vector2i, kerning: Vector2)
+- font_set_language_support_override(font_rid: RID, language: String, supported: bool)
+- font_set_modulate_color_glyphs(font_rid: RID, modulate: bool)
+- font_set_msdf_pixel_range(font_rid: RID, msdf_pixel_range: int)
+- font_set_msdf_size(font_rid: RID, msdf_size: int)
+- font_set_multichannel_signed_distance_field(font_rid: RID, msdf: bool)
+- font_set_name(font_rid: RID, name: String)
+- font_set_opentype_feature_overrides(font_rid: RID, overrides: Dictionary)
+- font_set_oversampling(font_rid: RID, oversampling: float)
+- font_set_palette_custom_colors(font_rid: RID, colors: PackedColorArray)
+- font_set_scale(font_rid: RID, size: int, scale: float)
+- font_set_script_support_override(font_rid: RID, script: String, supported: bool)
+- font_set_spacing(font_rid: RID, spacing: int, value: int)
+- font_set_stretch(font_rid: RID, weight: int)
+- font_set_style(font_rid: RID, style: int)
+- font_set_style_name(font_rid: RID, name: String)
+- font_set_subpixel_positioning(font_rid: RID, subpixel_positioning: int)
+- font_set_texture_image(font_rid: RID, size: Vector2i, texture_index: int, image: Image)
+- font_set_texture_offsets(font_rid: RID, size: Vector2i, texture_index: int, offset: PackedInt32Array)
+- font_set_transform(font_rid: RID, transform: Transform2D)
+- font_set_underline_position(font_rid: RID, size: int, underline_position: float)
+- font_set_underline_thickness(font_rid: RID, size: int, underline_thickness: float)
+- font_set_used_palette(font_rid: RID, index: int)
+- font_set_variation_coordinates(font_rid: RID, variation_coordinates: Dictionary)
+- font_set_weight(font_rid: RID, weight: int)
+- font_supported_feature_list(font_rid: RID) -> Dictionary
+- font_supported_variation_list(font_rid: RID) -> Dictionary
+- format_number(number: String, language: String = "") -> String
+- free_rid(rid: RID)
+- get_features() -> int
+- get_hex_code_box_size(size: int, index: int) -> Vector2
+- get_name() -> String
+- get_support_data() -> PackedByteArray
+- get_support_data_filename() -> String
+- get_support_data_info() -> String
+- has(rid: RID) -> bool
+- has_feature(feature: int) -> bool
+- is_confusable(string: String, dict: PackedStringArray) -> int
+- is_locale_right_to_left(locale: String) -> bool
+- is_locale_using_support_data(locale: String) -> bool
+- is_valid_identifier(string: String) -> bool
+- is_valid_letter(unicode: int) -> bool
+- load_support_data(filename: String) -> bool
+- name_to_tag(name: String) -> int
+- parse_number(number: String, language: String = "") -> String
+- parse_structured_text(parser_type: int, args: Array, text: String) -> Vector3i[]
+- percent_sign(language: String = "") -> String
+- save_support_data(filename: String) -> bool
+- shaped_get_run_count(shaped: RID) -> int
+- shaped_get_run_direction(shaped: RID, index: int) -> int
+- shaped_get_run_font_rid(shaped: RID, index: int) -> RID
+- shaped_get_run_font_size(shaped: RID, index: int) -> int
+- shaped_get_run_glyph_range(shaped: RID, index: int) -> Vector2i
+- shaped_get_run_language(shaped: RID, index: int) -> String
+- shaped_get_run_object(shaped: RID, index: int) -> Variant
+- shaped_get_run_range(shaped: RID, index: int) -> Vector2i
+- shaped_get_run_text(shaped: RID, index: int) -> String
+- shaped_get_span_count(shaped: RID) -> int
+- shaped_get_span_embedded_object(shaped: RID, index: int) -> Variant
+- shaped_get_span_meta(shaped: RID, index: int) -> Variant
+- shaped_get_span_object(shaped: RID, index: int) -> Variant
+- shaped_get_span_text(shaped: RID, index: int) -> String
+- shaped_get_text(shaped: RID) -> String
+- shaped_set_span_update_font(shaped: RID, index: int, fonts: RID[], size: int, opentype_features: Dictionary = {})
+- shaped_text_add_object(shaped: RID, key: Variant, size: Vector2, inline_align: int = 5, length: int = 1, baseline: float = 0.0) -> bool
+- shaped_text_add_string(shaped: RID, text: String, fonts: RID[], size: int, opentype_features: Dictionary = {}, language: String = "", meta: Variant = null) -> bool
+- shaped_text_clear(rid: RID)
+- shaped_text_closest_character_pos(shaped: RID, pos: int) -> int
+- shaped_text_draw(shaped: RID, canvas: RID, pos: Vector2, clip_l: float = -1, clip_r: float = -1, color: Color = Color(1, 1, 1, 1), oversampling: float = 0.0)
+- shaped_text_draw_outline(shaped: RID, canvas: RID, pos: Vector2, clip_l: float = -1, clip_r: float = -1, outline_size: int = 1, color: Color = Color(1, 1, 1, 1), oversampling: float = 0.0)
+- shaped_text_duplicate(rid: RID) -> RID
+- shaped_text_fit_to_width(shaped: RID, width: float, justification_flags: int = 3) -> float
+- shaped_text_get_ascent(shaped: RID) -> float
+- shaped_text_get_carets(shaped: RID, position: int) -> Dictionary
+- shaped_text_get_character_breaks(shaped: RID) -> PackedInt32Array
+- shaped_text_get_custom_ellipsis(shaped: RID) -> int
+- shaped_text_get_custom_punctuation(shaped: RID) -> String
+- shaped_text_get_descent(shaped: RID) -> float
+- shaped_text_get_direction(shaped: RID) -> int
+- shaped_text_get_dominant_direction_in_range(shaped: RID, start: int, end: int) -> int
+- shaped_text_get_ellipsis_glyph_count(shaped: RID) -> int
+- shaped_text_get_ellipsis_glyphs(shaped: RID) -> Dictionary[]
+- shaped_text_get_ellipsis_pos(shaped: RID) -> int
+- shaped_text_get_glyph_count(shaped: RID) -> int
+- shaped_text_get_glyphs(shaped: RID) -> Dictionary[]
+- shaped_text_get_grapheme_bounds(shaped: RID, pos: int) -> Vector2
+- shaped_text_get_inferred_direction(shaped: RID) -> int
+- shaped_text_get_line_breaks(shaped: RID, width: float, start: int = 0, break_flags: int = 3) -> PackedInt32Array
+- shaped_text_get_line_breaks_adv(shaped: RID, width: PackedFloat32Array, start: int = 0, once: bool = true, break_flags: int = 3) -> PackedInt32Array
+- shaped_text_get_object_glyph(shaped: RID, key: Variant) -> int
+- shaped_text_get_object_range(shaped: RID, key: Variant) -> Vector2i
+- shaped_text_get_object_rect(shaped: RID, key: Variant) -> Rect2
+- shaped_text_get_objects(shaped: RID) -> Array
+- shaped_text_get_orientation(shaped: RID) -> int
+- shaped_text_get_parent(shaped: RID) -> RID
+- shaped_text_get_preserve_control(shaped: RID) -> bool
+- shaped_text_get_preserve_invalid(shaped: RID) -> bool
+- shaped_text_get_range(shaped: RID) -> Vector2i
+- shaped_text_get_selection(shaped: RID, start: int, end: int) -> PackedVector2Array
+- shaped_text_get_size(shaped: RID) -> Vector2
+- shaped_text_get_spacing(shaped: RID, spacing: int) -> int
+- shaped_text_get_trim_pos(shaped: RID) -> int
+- shaped_text_get_underline_position(shaped: RID) -> float
+- shaped_text_get_underline_thickness(shaped: RID) -> float
+- shaped_text_get_width(shaped: RID) -> float
+- shaped_text_get_word_breaks(shaped: RID, grapheme_flags: int = 264, skip_grapheme_flags: int = 4) -> PackedInt32Array
+- shaped_text_has_object(shaped: RID, key: Variant) -> bool
+- shaped_text_has_visible_chars(shaped: RID) -> bool
+- shaped_text_hit_test_grapheme(shaped: RID, coords: float) -> int
+- shaped_text_hit_test_position(shaped: RID, coords: float) -> int
+- shaped_text_is_ready(shaped: RID) -> bool
+- shaped_text_next_character_pos(shaped: RID, pos: int) -> int
+- shaped_text_next_grapheme_pos(shaped: RID, pos: int) -> int
+- shaped_text_overrun_trim_to_width(shaped: RID, width: float = 0, overrun_trim_flags: int = 0)
+- shaped_text_prev_character_pos(shaped: RID, pos: int) -> int
+- shaped_text_prev_grapheme_pos(shaped: RID, pos: int) -> int
+- shaped_text_resize_object(shaped: RID, key: Variant, size: Vector2, inline_align: int = 5, baseline: float = 0.0) -> bool
+- shaped_text_set_bidi_override(shaped: RID, override: Array)
+- shaped_text_set_custom_ellipsis(shaped: RID, char: int)
+- shaped_text_set_custom_punctuation(shaped: RID, punct: String)
+- shaped_text_set_direction(shaped: RID, direction: int = 0)
+- shaped_text_set_orientation(shaped: RID, orientation: int = 0)
+- shaped_text_set_preserve_control(shaped: RID, enabled: bool)
+- shaped_text_set_preserve_invalid(shaped: RID, enabled: bool)
+- shaped_text_set_spacing(shaped: RID, spacing: int, value: int)
+- shaped_text_shape(shaped: RID) -> bool
+- shaped_text_sort_logical(shaped: RID) -> Dictionary[]
+- shaped_text_substr(shaped: RID, start: int, length: int) -> RID
+- shaped_text_tab_align(shaped: RID, tab_stops: PackedFloat32Array) -> float
+- spoof_check(string: String) -> bool
+- string_get_character_breaks(string: String, language: String = "") -> PackedInt32Array
+- string_get_word_breaks(string: String, language: String = "", chars_per_line: int = 0) -> PackedInt32Array
+- string_to_lower(string: String, language: String = "") -> String
+- string_to_title(string: String, language: String = "") -> String
+- string_to_upper(string: String, language: String = "") -> String
+- strip_diacritics(string: String) -> String
+- tag_to_name(tag: int) -> String

@@ -1,0 +1,79 @@
+## Array
+
+**Ctors:**
+- Array()
+- Array(base: Array, type: int, class_name: StringName, script: Variant)
+- Array(from: Array)
+- Array(from: PackedByteArray)
+- Array(from: PackedColorArray)
+- Array(from: PackedFloat32Array)
+- Array(from: PackedFloat64Array)
+- Array(from: PackedInt32Array)
+- Array(from: PackedInt64Array)
+- Array(from: PackedStringArray)
+- Array(from: PackedVector2Array)
+- Array(from: PackedVector3Array)
+- Array(from: PackedVector4Array)
+
+**Methods:**
+- all(method: Callable) -> bool
+- any(method: Callable) -> bool
+- append(value: Variant)
+- append_array(array: Array)
+- assign(array: Array)
+- back() -> Variant
+- bsearch(value: Variant, before: bool = true) -> int
+- bsearch_custom(value: Variant, func: Callable, before: bool = true) -> int
+- clear()
+- count(value: Variant) -> int
+- duplicate(deep: bool = false) -> Array
+- duplicate_deep(deep_subresources_mode: int = 1) -> Array
+- erase(value: Variant)
+- fill(value: Variant)
+- filter(method: Callable) -> Array
+- find(what: Variant, from: int = 0) -> int
+- find_custom(method: Callable, from: int = 0) -> int
+- front() -> Variant
+- get(index: int) -> Variant
+- get_typed_builtin() -> int
+- get_typed_class_name() -> StringName
+- get_typed_script() -> Variant
+- has(value: Variant) -> bool
+- hash() -> int
+- insert(position: int, value: Variant) -> int
+- is_empty() -> bool
+- is_read_only() -> bool
+- is_same_typed(array: Array) -> bool
+- is_typed() -> bool
+- make_read_only()
+- map(method: Callable) -> Array
+- max() -> Variant
+- min() -> Variant
+- pick_random() -> Variant
+- pop_at(position: int) -> Variant
+- pop_back() -> Variant
+- pop_front() -> Variant
+- push_back(value: Variant)
+- push_front(value: Variant)
+- reduce(method: Callable, accum: Variant = null) -> Variant
+- remove_at(position: int)
+- resize(size: int) -> int
+- reverse()
+- rfind(what: Variant, from: int = -1) -> int
+- rfind_custom(method: Callable, from: int = -1) -> int
+- set(index: int, value: Variant)
+- shuffle()
+- size() -> int
+- slice(begin: int, end: int = 2147483647, step: int = 1, deep: bool = false) -> Array
+- sort()
+- sort_custom(func: Callable)
+
+**Operators:**
+- operator !=
+- operator +
+- operator <
+- operator <=
+- operator ==
+- operator >
+- operator >=
+- operator []

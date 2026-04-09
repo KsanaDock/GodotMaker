@@ -1,0 +1,19 @@
+## FontVariation <- Font
+
+**Props:**
+- base_font: Font
+- baseline_offset: float = 0.0
+- opentype_features: Dictionary = {}
+- palette_custom_colors: PackedColorArray = PackedColorArray()
+- palette_index: int = 0
+- spacing_bottom: int = 0
+- spacing_glyph: int = 0
+- spacing_space: int = 0
+- spacing_top: int = 0
+- variation_embolden: float = 0.0
+- variation_face_index: int = 0
+- variation_opentype: Dictionary = {}
+- variation_transform: Transform2D = Transform2D(1, 0, 0, 1, 0, 0)
+
+**Methods:**
+- set_spacing(spacing: int, value: int)

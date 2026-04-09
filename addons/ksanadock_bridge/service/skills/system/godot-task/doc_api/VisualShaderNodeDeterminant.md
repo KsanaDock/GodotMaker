@@ -1,0 +1,1 @@
+## VisualShaderNodeDeterminant <- VisualShaderNode

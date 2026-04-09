@@ -1,0 +1,1 @@
+## VisualShaderNodeVaryingSetter <- VisualShaderNodeVarying

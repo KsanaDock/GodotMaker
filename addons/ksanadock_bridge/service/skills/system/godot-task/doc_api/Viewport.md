@@ -1,0 +1,98 @@
+## Viewport <- Node
+
+**Props:**
+- anisotropic_filtering_level: int = 2
+- audio_listener_enable_2d: bool = false
+- audio_listener_enable_3d: bool = false
+- canvas_cull_mask: int = 4294967295
+- canvas_item_default_texture_filter: int = 1
+- canvas_item_default_texture_repeat: int = 0
+- canvas_transform: Transform2D
+- debug_draw: int = 0
+- disable_3d: bool = false
+- fsr_sharpness: float = 0.2
+- global_canvas_transform: Transform2D
+- gui_disable_input: bool = false
+- gui_drag_threshold: int = 10
+- gui_embed_subwindows: bool = false
+- gui_snap_controls_to_pixels: bool = true
+- handle_input_locally: bool = true
+- mesh_lod_threshold: float = 1.0
+- msaa_2d: int = 0
+- msaa_3d: int = 0
+- oversampling: bool = true
+- oversampling_override: float = 0.0
+- own_world_3d: bool = false
+- physics_interpolation_mode: int = 1
+- physics_object_picking: bool = false
+- physics_object_picking_first_only: bool = false
+- physics_object_picking_sort: bool = false
+- positional_shadow_atlas_16_bits: bool = true
+- positional_shadow_atlas_quad_0: int = 2
+- positional_shadow_atlas_quad_1: int = 2
+- positional_shadow_atlas_quad_2: int = 3
+- positional_shadow_atlas_quad_3: int = 4
+- positional_shadow_atlas_size: int = 2048
+- scaling_3d_mode: int = 0
+- scaling_3d_scale: float = 1.0
+- screen_space_aa: int = 0
+- sdf_oversize: int = 1
+- sdf_scale: int = 1
+- snap_2d_transforms_to_pixel: bool = false
+- snap_2d_vertices_to_pixel: bool = false
+- texture_mipmap_bias: float = 0.0
+- transparent_bg: bool = false
+- use_debanding: bool = false
+- use_hdr_2d: bool = false
+- use_occlusion_culling: bool = false
+- use_taa: bool = false
+- use_xr: bool = false
+- vrs_mode: int = 0
+- vrs_texture: Texture2D
+- vrs_update_mode: int = 1
+- world_2d: World2D
+- world_3d: World3D
+
+**Methods:**
+- find_world_2d() -> World2D
+- find_world_3d() -> World3D
+- get_audio_listener_2d() -> AudioListener2D
+- get_audio_listener_3d() -> AudioListener3D
+- get_camera_2d() -> Camera2D
+- get_camera_3d() -> Camera3D
+- get_canvas_cull_mask_bit(layer: int) -> bool
+- get_embedded_subwindows() -> Window[]
+- get_final_transform() -> Transform2D
+- get_mouse_position() -> Vector2
+- get_oversampling() -> float
+- get_positional_shadow_atlas_quadrant_subdiv(quadrant: int) -> int
+- get_render_info(type: int, info: int) -> int
+- get_screen_transform() -> Transform2D
+- get_stretch_transform() -> Transform2D
+- get_texture() -> ViewportTexture
+- get_viewport_rid() -> RID
+- get_visible_rect() -> Rect2
+- gui_cancel_drag()
+- gui_get_drag_data() -> Variant
+- gui_get_drag_description() -> String
+- gui_get_focus_owner() -> Control
+- gui_get_hovered_control() -> Control
+- gui_is_drag_successful() -> bool
+- gui_is_dragging() -> bool
+- gui_release_focus()
+- gui_set_drag_description(description: String)
+- is_input_handled() -> bool
+- notify_mouse_entered()
+- notify_mouse_exited()
+- push_input(event: InputEvent, in_local_coords: bool = false)
+- push_text_input(text: String)
+- push_unhandled_input(event: InputEvent, in_local_coords: bool = false)
+- set_canvas_cull_mask_bit(layer: int, enable: bool)
+- set_input_as_handled()
+- set_positional_shadow_atlas_quadrant_subdiv(quadrant: int, subdiv: int)
+- update_mouse_cursor_state()
+- warp_mouse(position: Vector2)
+
+**Signals:**
+- gui_focus_changed(node: Control)
+- size_changed

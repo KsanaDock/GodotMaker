@@ -1,0 +1,1 @@
+## AudioEffectHighShelfFilter <- AudioEffectFilter

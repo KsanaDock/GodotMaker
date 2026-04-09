@@ -1,0 +1,1 @@
+## VisualShaderNodeGlobalExpression <- VisualShaderNodeExpression

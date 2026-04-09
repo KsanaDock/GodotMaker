@@ -1,0 +1,160 @@
+## @GlobalScope
+
+**Props:**
+- AccessibilityServer: AccessibilityServer
+- AudioServer: AudioServer
+- CameraServer: CameraServer
+- ClassDB: ClassDB
+- DisplayServer: DisplayServer
+- EditorInterface: EditorInterface
+- Engine: Engine
+- EngineDebugger: EngineDebugger
+- GDExtensionManager: GDExtensionManager
+- GDScriptLanguageProtocol: GDScriptLanguageProtocol
+- Geometry2D: Geometry2D
+- Geometry3D: Geometry3D
+- IP: IP
+- Input: Input
+- InputMap: InputMap
+- JavaClassWrapper: JavaClassWrapper
+- JavaScriptBridge: JavaScriptBridge
+- Marshalls: Marshalls
+- NativeMenu: NativeMenu
+- NavigationMeshGenerator: NavigationMeshGenerator
+- NavigationServer2D: NavigationServer2D
+- NavigationServer2DManager: NavigationServer2DManager
+- NavigationServer3D: NavigationServer3D
+- NavigationServer3DManager: NavigationServer3DManager
+- OS: OS
+- Performance: Performance
+- PhysicsServer2D: PhysicsServer2D
+- PhysicsServer2DManager: PhysicsServer2DManager
+- PhysicsServer3D: PhysicsServer3D
+- PhysicsServer3DManager: PhysicsServer3DManager
+- ProjectSettings: ProjectSettings
+- RenderingServer: RenderingServer
+- ResourceLoader: ResourceLoader
+- ResourceSaver: ResourceSaver
+- ResourceUID: ResourceUID
+- TextServerManager: TextServerManager
+- ThemeDB: ThemeDB
+- Time: Time
+- TranslationServer: TranslationServer
+- WorkerThreadPool: WorkerThreadPool
+- XRServer: XRServer
+
+**Methods:**
+- abs(x: Variant) -> Variant
+- absf(x: float) -> float
+- absi(x: int) -> int
+- acos(x: float) -> float
+- acosh(x: float) -> float
+- angle_difference(from: float, to: float) -> float
+- asin(x: float) -> float
+- asinh(x: float) -> float
+- atan(x: float) -> float
+- atan2(y: float, x: float) -> float
+- atanh(x: float) -> float
+- bezier_derivative(start: float, control_1: float, control_2: float, end: float, t: float) -> float
+- bezier_interpolate(start: float, control_1: float, control_2: float, end: float, t: float) -> float
+- bytes_to_var(bytes: PackedByteArray) -> Variant
+- bytes_to_var_with_objects(bytes: PackedByteArray) -> Variant
+- ceil(x: Variant) -> Variant
+- ceilf(x: float) -> float
+- ceili(x: float) -> int
+- clamp(value: Variant, min: Variant, max: Variant) -> Variant
+- clampf(value: float, min: float, max: float) -> float
+- clampi(value: int, min: int, max: int) -> int
+- cos(angle_rad: float) -> float
+- cosh(x: float) -> float
+- cubic_interpolate(from: float, to: float, pre: float, post: float, weight: float) -> float
+- cubic_interpolate_angle(from: float, to: float, pre: float, post: float, weight: float) -> float
+- cubic_interpolate_angle_in_time(from: float, to: float, pre: float, post: float, weight: float, to_t: float, pre_t: float, post_t: float) -> float
+- cubic_interpolate_in_time(from: float, to: float, pre: float, post: float, weight: float, to_t: float, pre_t: float, post_t: float) -> float
+- db_to_linear(db: float) -> float
+- deg_to_rad(deg: float) -> float
+- ease(x: float, curve: float) -> float
+- error_string(error: int) -> String
+- exp(x: float) -> float
+- floor(x: Variant) -> Variant
+- floorf(x: float) -> float
+- floori(x: float) -> int
+- fmod(x: float, y: float) -> float
+- fposmod(x: float, y: float) -> float
+- hash(variable: Variant) -> int
+- instance_from_id(instance_id: int) -> Object
+- inverse_lerp(from: float, to: float, weight: float) -> float
+- is_equal_approx(a: float, b: float) -> bool
+- is_finite(x: float) -> bool
+- is_inf(x: float) -> bool
+- is_instance_id_valid(id: int) -> bool
+- is_instance_valid(instance: Variant) -> bool
+- is_nan(x: float) -> bool
+- is_same(a: Variant, b: Variant) -> bool
+- is_zero_approx(x: float) -> bool
+- lerp(from: Variant, to: Variant, weight: Variant) -> Variant
+- lerp_angle(from: float, to: float, weight: float) -> float
+- lerpf(from: float, to: float, weight: float) -> float
+- linear_to_db(lin: float) -> float
+- log(x: float) -> float
+- max() -> Variant
+- maxf(a: float, b: float) -> float
+- maxi(a: int, b: int) -> int
+- min() -> Variant
+- minf(a: float, b: float) -> float
+- mini(a: int, b: int) -> int
+- move_toward(from: float, to: float, delta: float) -> float
+- nearest_po2(value: int) -> int
+- pingpong(value: float, length: float) -> float
+- posmod(x: int, y: int) -> int
+- pow(base: float, exp: float) -> float
+- print()
+- print_rich()
+- print_verbose()
+- printerr()
+- printraw()
+- prints()
+- printt()
+- push_error()
+- push_warning()
+- rad_to_deg(rad: float) -> float
+- rand_from_seed(seed: int) -> PackedInt64Array
+- randf() -> float
+- randf_range(from: float, to: float) -> float
+- randfn(mean: float, deviation: float) -> float
+- randi() -> int
+- randi_range(from: int, to: int) -> int
+- randomize()
+- remap(value: float, istart: float, istop: float, ostart: float, ostop: float) -> float
+- rid_allocate_id() -> int
+- rid_from_int64(base: int) -> RID
+- rotate_toward(from: float, to: float, delta: float) -> float
+- round(x: Variant) -> Variant
+- roundf(x: float) -> float
+- roundi(x: float) -> int
+- seed(base: int)
+- sign(x: Variant) -> Variant
+- signf(x: float) -> float
+- signi(x: int) -> int
+- sin(angle_rad: float) -> float
+- sinh(x: float) -> float
+- smoothstep(from: float, to: float, x: float) -> float
+- snapped(x: Variant, step: Variant) -> Variant
+- snappedf(x: float, step: float) -> float
+- snappedi(x: float, step: int) -> int
+- sqrt(x: float) -> float
+- step_decimals(x: float) -> int
+- str() -> String
+- str_to_var(string: String) -> Variant
+- tan(angle_rad: float) -> float
+- tanh(x: float) -> float
+- type_convert(variant: Variant, type: int) -> Variant
+- type_string(type: int) -> String
+- typeof(variable: Variant) -> int
+- var_to_bytes(variable: Variant) -> PackedByteArray
+- var_to_bytes_with_objects(variable: Variant) -> PackedByteArray
+- var_to_str(variable: Variant) -> String
+- weakref(obj: Variant) -> Variant
+- wrap(value: Variant, min: Variant, max: Variant) -> Variant
+- wrapf(value: float, min: float, max: float) -> float
+- wrapi(value: int, min: int, max: int) -> int

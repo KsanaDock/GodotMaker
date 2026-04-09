@@ -1,0 +1,36 @@
+## SurfaceTool <- RefCounted
+
+**Methods:**
+- add_index(index: int)
+- add_triangle_fan(vertices: PackedVector3Array, uvs: PackedVector2Array = PackedVector2Array(), colors: PackedColorArray = PackedColorArray(), uv2s: PackedVector2Array = PackedVector2Array(), normals: PackedVector3Array = PackedVector3Array(), tangents: Plane[] = [])
+- add_vertex(vertex: Vector3)
+- append_from(existing: Mesh, surface: int, transform: Transform3D)
+- begin(primitive: int)
+- clear()
+- commit(existing: ArrayMesh = null, flags: int = 0) -> ArrayMesh
+- commit_to_arrays() -> Array
+- create_from(existing: Mesh, surface: int)
+- create_from_arrays(arrays: Array, primitive_type: int = 3)
+- create_from_blend_shape(existing: Mesh, surface: int, blend_shape: String)
+- deindex()
+- generate_lod(nd_threshold: float, target_index_count: int = 3) -> PackedInt32Array
+- generate_normals(flip: bool = false)
+- generate_tangents()
+- get_aabb() -> AABB
+- get_custom_format(channel_index: int) -> int
+- get_primitive_type() -> int
+- get_skin_weight_count() -> int
+- index()
+- optimize_indices_for_cache()
+- set_bones(bones: PackedInt32Array)
+- set_color(color: Color)
+- set_custom(channel_index: int, custom_color: Color)
+- set_custom_format(channel_index: int, format: int)
+- set_material(material: Material)
+- set_normal(normal: Vector3)
+- set_skin_weight_count(count: int)
+- set_smooth_group(index: int)
+- set_tangent(tangent: Plane)
+- set_uv(uv: Vector2)
+- set_uv2(uv2: Vector2)
+- set_weights(weights: PackedFloat32Array)

@@ -1,0 +1,14 @@
+# Godot
+.godot/
+*.uid
+*.import
+
+# AI Project Data (Memory/Tasks/Knowledge)
+.ksanadock/
+.ksana/
+
+# KsanaDock Bridge Service
+addons/ksanadock_bridge/service/.env
+addons/ksanadock_bridge/service/node_modules/
+addons/ksanadock_bridge/service/dist/
+addons/ksanadock_bridge/service/service_logs.txt*

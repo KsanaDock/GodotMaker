@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://addons/ksanadock/ui/terminal/terminal.gd" id="1"]
+[ext_resource type="Texture2D" path="res://addons/ksanadock/icons/ui/plus.svg" id="2"]
+[ext_resource type="Texture2D" path="res://addons/ksanadock/icons/ui/rotate-ccw.svg" id="3"]
+[ext_resource type="Texture2D" path="res://addons/ksanadock/icons/ui/x.svg" id="4"]
+
+[node name="Terminal" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1")
+
+[node name="TopBar" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="TopBar/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 11
+text = "  TERMINAL"
+
+[node name="Spacer" type="Control" parent="TopBar/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Actions" type="HBoxContainer" parent="TopBar/HBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="AddBtn" type="Button" parent="TopBar/HBox/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+tooltip_text = "New Terminal"
+icon = ExtResource("2")
+flat = true
+icon_alignment = 1
+
+[node name="ClearBtn" type="Button" parent="TopBar/HBox/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+tooltip_text = "Clear Current Terminal"
+icon = ExtResource("3")
+flat = true
+icon_alignment = 1
+
+[node name="KillBtn" type="Button" parent="TopBar/HBox/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+tooltip_text = "Kill Current Terminal"
+icon = ExtResource("4")
+flat = true
+icon_alignment = 1
+
+[node name="Content" type="HSplitContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = -180
+
+[node name="TabContainer" type="TabContainer" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 11
+tab_alignment = 0
+current_tab = 0
+clip_tabs = false
+tabs_visible = false
+drag_to_rearrange_enabled = true
+tab_close_display_policy = 0
+
+[node name="Sidebar" type="PanelContainer" parent="Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Content/Sidebar"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="SidebarList" type="VBoxContainer" parent="Content/Sidebar/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1

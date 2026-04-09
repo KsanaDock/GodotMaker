@@ -1,0 +1,157 @@
+## Control <- CanvasItem
+
+**Props:**
+- accessibility_controls_nodes: NodePath[] = []
+- accessibility_described_by_nodes: NodePath[] = []
+- accessibility_description: String = ""
+- accessibility_flow_to_nodes: NodePath[] = []
+- accessibility_labeled_by_nodes: NodePath[] = []
+- accessibility_live: int = 0
+- accessibility_name: String = ""
+- anchor_bottom: float = 0.0
+- anchor_left: float = 0.0
+- anchor_right: float = 0.0
+- anchor_top: float = 0.0
+- auto_translate: bool
+- clip_contents: bool = false
+- custom_minimum_size: Vector2 = Vector2(0, 0)
+- focus_behavior_recursive: int = 0
+- focus_mode: int = 0
+- focus_neighbor_bottom: NodePath = NodePath("")
+- focus_neighbor_left: NodePath = NodePath("")
+- focus_neighbor_right: NodePath = NodePath("")
+- focus_neighbor_top: NodePath = NodePath("")
+- focus_next: NodePath = NodePath("")
+- focus_previous: NodePath = NodePath("")
+- global_position: Vector2
+- grow_horizontal: int = 1
+- grow_vertical: int = 1
+- layout_direction: int = 0
+- localize_numeral_system: bool = true
+- mouse_behavior_recursive: int = 0
+- mouse_default_cursor_shape: int = 0
+- mouse_filter: int = 0
+- mouse_force_pass_scroll_events: bool = true
+- offset_bottom: float = 0.0
+- offset_left: float = 0.0
+- offset_right: float = 0.0
+- offset_top: float = 0.0
+- offset_transform_enabled: bool = false
+- offset_transform_pivot: Vector2 = Vector2(0, 0)
+- offset_transform_pivot_ratio: Vector2 = Vector2(0.5, 0.5)
+- offset_transform_position: Vector2 = Vector2(0, 0)
+- offset_transform_position_ratio: Vector2 = Vector2(0, 0)
+- offset_transform_rotation: float = 0.0
+- offset_transform_scale: Vector2 = Vector2(1, 1)
+- offset_transform_visual_only: bool = true
+- physics_interpolation_mode: int = 2
+- pivot_offset: Vector2 = Vector2(0, 0)
+- pivot_offset_ratio: Vector2 = Vector2(0, 0)
+- position: Vector2 = Vector2(0, 0)
+- rotation: float = 0.0
+- rotation_degrees: float
+- scale: Vector2 = Vector2(1, 1)
+- shortcut_context: Node
+- size: Vector2 = Vector2(0, 0)
+- size_flags_horizontal: int = 1
+- size_flags_stretch_ratio: float = 1.0
+- size_flags_vertical: int = 1
+- theme: Theme
+- theme_type_variation: StringName = &""
+- tooltip_auto_translate_mode: int = 0
+- tooltip_text: String = ""
+
+**Methods:**
+- accept_event()
+- accessibility_drag()
+- accessibility_drop()
+- add_theme_color_override(name: StringName, color: Color)
+- add_theme_constant_override(name: StringName, constant: int)
+- add_theme_font_override(name: StringName, font: Font)
+- add_theme_font_size_override(name: StringName, font_size: int)
+- add_theme_icon_override(name: StringName, texture: Texture2D)
+- add_theme_stylebox_override(name: StringName, stylebox: StyleBox)
+- begin_bulk_theme_override()
+- end_bulk_theme_override()
+- find_next_valid_focus() -> Control
+- find_prev_valid_focus() -> Control
+- find_valid_focus_neighbor(side: int) -> Control
+- force_drag(data: Variant, preview: Control)
+- get_anchor(side: int) -> float
+- get_begin() -> Vector2
+- get_combined_minimum_size() -> Vector2
+- get_combined_pivot_offset() -> Vector2
+- get_cursor_shape(at_position: Vector2 = Vector2(0, 0)) -> int
+- get_end() -> Vector2
+- get_focus_mode_with_override() -> int
+- get_focus_neighbor(side: int) -> NodePath
+- get_global_rect() -> Rect2
+- get_minimum_size() -> Vector2
+- get_mouse_filter_with_override() -> int
+- get_offset(offset: int) -> float
+- get_parent_area_size() -> Vector2
+- get_parent_control() -> Control
+- get_rect() -> Rect2
+- get_screen_position() -> Vector2
+- get_theme_color(name: StringName, theme_type: StringName = &"") -> Color
+- get_theme_constant(name: StringName, theme_type: StringName = &"") -> int
+- get_theme_default_base_scale() -> float
+- get_theme_default_font() -> Font
+- get_theme_default_font_size() -> int
+- get_theme_font(name: StringName, theme_type: StringName = &"") -> Font
+- get_theme_font_size(name: StringName, theme_type: StringName = &"") -> int
+- get_theme_icon(name: StringName, theme_type: StringName = &"") -> Texture2D
+- get_theme_stylebox(name: StringName, theme_type: StringName = &"") -> StyleBox
+- get_tooltip(at_position: Vector2 = Vector2(0, 0)) -> String
+- grab_click_focus()
+- grab_focus(hide_focus: bool = false)
+- has_focus(ignore_hidden_focus: bool = false) -> bool
+- has_theme_color(name: StringName, theme_type: StringName = &"") -> bool
+- has_theme_color_override(name: StringName) -> bool
+- has_theme_constant(name: StringName, theme_type: StringName = &"") -> bool
+- has_theme_constant_override(name: StringName) -> bool
+- has_theme_font(name: StringName, theme_type: StringName = &"") -> bool
+- has_theme_font_override(name: StringName) -> bool
+- has_theme_font_size(name: StringName, theme_type: StringName = &"") -> bool
+- has_theme_font_size_override(name: StringName) -> bool
+- has_theme_icon(name: StringName, theme_type: StringName = &"") -> bool
+- has_theme_icon_override(name: StringName) -> bool
+- has_theme_stylebox(name: StringName, theme_type: StringName = &"") -> bool
+- has_theme_stylebox_override(name: StringName) -> bool
+- is_drag_successful() -> bool
+- is_layout_rtl() -> bool
+- release_focus()
+- remove_theme_color_override(name: StringName)
+- remove_theme_constant_override(name: StringName)
+- remove_theme_font_override(name: StringName)
+- remove_theme_font_size_override(name: StringName)
+- remove_theme_icon_override(name: StringName)
+- remove_theme_stylebox_override(name: StringName)
+- reset_size()
+- set_anchor(side: int, anchor: float, keep_offset: bool = false, push_opposite_anchor: bool = true)
+- set_anchor_and_offset(side: int, anchor: float, offset: float, push_opposite_anchor: bool = false)
+- set_anchors_and_offsets_preset(preset: int, resize_mode: int = 0, margin: int = 0)
+- set_anchors_preset(preset: int, keep_offsets: bool = false)
+- set_begin(position: Vector2)
+- set_drag_forwarding(drag_func: Callable, can_drop_func: Callable, drop_func: Callable)
+- set_drag_preview(control: Control)
+- set_end(position: Vector2)
+- set_focus_neighbor(side: int, neighbor: NodePath)
+- set_global_position(position: Vector2, keep_offsets: bool = false)
+- set_offset(side: int, offset: float)
+- set_offsets_preset(preset: int, resize_mode: int = 0, margin: int = 0)
+- set_position(position: Vector2, keep_offsets: bool = false)
+- set_size(size: Vector2, keep_offsets: bool = false)
+- update_minimum_size()
+- warp_mouse(position: Vector2)
+
+**Signals:**
+- focus_entered
+- focus_exited
+- gui_input(event: InputEvent)
+- minimum_size_changed
+- mouse_entered
+- mouse_exited
+- resized
+- size_flags_changed
+- theme_changed

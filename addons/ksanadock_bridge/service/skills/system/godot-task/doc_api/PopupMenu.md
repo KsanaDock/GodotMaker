@@ -1,0 +1,108 @@
+## PopupMenu <- Popup
+
+**Props:**
+- allow_search: bool = true
+- canvas_item_default_texture_filter: int = 4
+- canvas_item_default_texture_repeat: int = 3
+- hide_on_checkable_item_selection: bool = true
+- hide_on_item_selection: bool = true
+- hide_on_state_item_selection: bool = false
+- item_count: int = 0
+- item_{index}/checkable: int = 0
+- item_{index}/checked: bool = false
+- item_{index}/disabled: bool = false
+- item_{index}/icon: Texture2D
+- item_{index}/id: int = 0
+- item_{index}/separator: bool = false
+- item_{index}/text: String = ""
+- prefer_native_menu: bool = false
+- search_bar_enabled_on_item_count: int = 0
+- shrink_height: bool = true
+- shrink_width: bool = true
+- submenu_popup_delay: float = 0.2
+- system_menu_id: int = 0
+- transparent: bool = true
+- transparent_bg: bool = true
+
+**Methods:**
+- activate_item_by_event(event: InputEvent, for_global_only: bool = false) -> bool
+- add_check_item(label: String, id: int = -1, accel: int = 0)
+- add_check_shortcut(shortcut: Shortcut, id: int = -1, global: bool = false)
+- add_icon_check_item(texture: Texture2D, label: String, id: int = -1, accel: int = 0)
+- add_icon_check_shortcut(texture: Texture2D, shortcut: Shortcut, id: int = -1, global: bool = false)
+- add_icon_item(texture: Texture2D, label: String, id: int = -1, accel: int = 0)
+- add_icon_radio_check_item(texture: Texture2D, label: String, id: int = -1, accel: int = 0)
+- add_icon_radio_check_shortcut(texture: Texture2D, shortcut: Shortcut, id: int = -1, global: bool = false)
+- add_icon_shortcut(texture: Texture2D, shortcut: Shortcut, id: int = -1, global: bool = false, allow_echo: bool = false)
+- add_item(label: String, id: int = -1, accel: int = 0)
+- add_multistate_item(label: String, max_states: int, default_state: int = 0, id: int = -1, accel: int = 0)
+- add_radio_check_item(label: String, id: int = -1, accel: int = 0)
+- add_radio_check_shortcut(shortcut: Shortcut, id: int = -1, global: bool = false)
+- add_separator(label: String = "", id: int = -1)
+- add_shortcut(shortcut: Shortcut, id: int = -1, global: bool = false, allow_echo: bool = false)
+- add_submenu_item(label: String, submenu: String, id: int = -1)
+- add_submenu_node_item(label: String, submenu: PopupMenu, id: int = -1)
+- clear(free_submenus: bool = false)
+- get_focused_item() -> int
+- get_item_accelerator(index: int) -> int
+- get_item_auto_translate_mode(index: int) -> int
+- get_item_icon(index: int) -> Texture2D
+- get_item_icon_max_width(index: int) -> int
+- get_item_icon_modulate(index: int) -> Color
+- get_item_id(index: int) -> int
+- get_item_indent(index: int) -> int
+- get_item_index(id: int) -> int
+- get_item_language(index: int) -> String
+- get_item_metadata(index: int) -> Variant
+- get_item_multistate(index: int) -> int
+- get_item_multistate_max(index: int) -> int
+- get_item_shortcut(index: int) -> Shortcut
+- get_item_submenu(index: int) -> String
+- get_item_submenu_node(index: int) -> PopupMenu
+- get_item_text(index: int) -> String
+- get_item_text_direction(index: int) -> int
+- get_item_tooltip(index: int) -> String
+- is_item_checkable(index: int) -> bool
+- is_item_checked(index: int) -> bool
+- is_item_disabled(index: int) -> bool
+- is_item_radio_checkable(index: int) -> bool
+- is_item_separator(index: int) -> bool
+- is_item_shortcut_disabled(index: int) -> bool
+- is_native_menu() -> bool
+- is_search_bar_enabled() -> bool
+- is_system_menu() -> bool
+- remove_item(index: int)
+- scroll_to_item(index: int)
+- set_focused_item(index: int)
+- set_item_accelerator(index: int, accel: int)
+- set_item_as_checkable(index: int, enable: bool)
+- set_item_as_radio_checkable(index: int, enable: bool)
+- set_item_as_separator(index: int, enable: bool)
+- set_item_auto_translate_mode(index: int, mode: int)
+- set_item_checked(index: int, checked: bool)
+- set_item_disabled(index: int, disabled: bool)
+- set_item_icon(index: int, icon: Texture2D)
+- set_item_icon_max_width(index: int, width: int)
+- set_item_icon_modulate(index: int, modulate: Color)
+- set_item_id(index: int, id: int)
+- set_item_indent(index: int, indent: int)
+- set_item_index(index: int, target_index: int)
+- set_item_language(index: int, language: String)
+- set_item_metadata(index: int, metadata: Variant)
+- set_item_multistate(index: int, state: int)
+- set_item_multistate_max(index: int, max_states: int)
+- set_item_shortcut(index: int, shortcut: Shortcut, global: bool = false)
+- set_item_shortcut_disabled(index: int, disabled: bool)
+- set_item_submenu(index: int, submenu: String)
+- set_item_submenu_node(index: int, submenu: PopupMenu)
+- set_item_text(index: int, text: String)
+- set_item_text_direction(index: int, direction: int)
+- set_item_tooltip(index: int, tooltip: String)
+- toggle_item_checked(index: int)
+- toggle_item_multistate(index: int)
+
+**Signals:**
+- id_focused(id: int)
+- id_pressed(id: int)
+- index_pressed(index: int)
+- menu_changed

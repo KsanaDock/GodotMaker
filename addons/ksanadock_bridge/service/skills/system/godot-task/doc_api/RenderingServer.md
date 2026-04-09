@@ -1,0 +1,540 @@
+## RenderingServer <- Object
+
+**Props:**
+- render_loop_enabled: bool
+
+**Methods:**
+- bake_render_uv2(base: RID, material_overrides: RID[], image_size: Vector2i) -> Image[]
+- call_on_render_thread(callable: Callable)
+- camera_attributes_create() -> RID
+- camera_attributes_set_auto_exposure(camera_attributes: RID, enable: bool, min_sensitivity: float, max_sensitivity: float, speed: float, scale: float)
+- camera_attributes_set_dof_blur(camera_attributes: RID, far_enable: bool, far_distance: float, far_transition: float, near_enable: bool, near_distance: float, near_transition: float, amount: float)
+- camera_attributes_set_dof_blur_bokeh_shape(shape: int)
+- camera_attributes_set_dof_blur_quality(quality: int, use_jitter: bool)
+- camera_attributes_set_exposure(camera_attributes: RID, multiplier: float, normalization: float)
+- camera_create() -> RID
+- camera_set_camera_attributes(camera: RID, effects: RID)
+- camera_set_compositor(camera: RID, compositor: RID)
+- camera_set_cull_mask(camera: RID, layers: int)
+- camera_set_environment(camera: RID, env: RID)
+- camera_set_frustum(camera: RID, size: float, offset: Vector2, z_near: float, z_far: float)
+- camera_set_orthogonal(camera: RID, size: float, z_near: float, z_far: float)
+- camera_set_perspective(camera: RID, fovy_degrees: float, z_near: float, z_far: float)
+- camera_set_transform(camera: RID, transform: Transform3D)
+- camera_set_use_vertical_aspect(camera: RID, enable: bool)
+- canvas_create() -> RID
+- canvas_item_add_animation_slice(item: RID, animation_length: float, slice_begin: float, slice_end: float, offset: float = 0.0)
+- canvas_item_add_circle(item: RID, pos: Vector2, radius: float, color: Color, antialiased: bool = false)
+- canvas_item_add_clip_ignore(item: RID, ignore: bool)
+- canvas_item_add_ellipse(item: RID, pos: Vector2, major: float, minor: float, color: Color, antialiased: bool = false)
+- canvas_item_add_lcd_texture_rect_region(item: RID, rect: Rect2, texture: RID, src_rect: Rect2, modulate: Color)
+- canvas_item_add_line(item: RID, from: Vector2, to: Vector2, color: Color, width: float = -1.0, antialiased: bool = false)
+- canvas_item_add_mesh(item: RID, mesh: RID, transform: Transform2D = Transform2D(1, 0, 0, 1, 0, 0), modulate: Color = Color(1, 1, 1, 1), texture: RID = RID())
+- canvas_item_add_msdf_texture_rect_region(item: RID, rect: Rect2, texture: RID, src_rect: Rect2, modulate: Color = Color(1, 1, 1, 1), outline_size: int = 0, px_range: float = 1.0, scale: float = 1.0)
+- canvas_item_add_multiline(item: RID, points: PackedVector2Array, colors: PackedColorArray, width: float = -1.0, antialiased: bool = false)
+- canvas_item_add_multimesh(item: RID, mesh: RID, texture: RID = RID())
+- canvas_item_add_nine_patch(item: RID, rect: Rect2, source: Rect2, texture: RID, topleft: Vector2, bottomright: Vector2, x_axis_mode: int = 0, y_axis_mode: int = 0, draw_center: bool = true, modulate: Color = Color(1, 1, 1, 1))
+- canvas_item_add_particles(item: RID, particles: RID, texture: RID)
+- canvas_item_add_polygon(item: RID, points: PackedVector2Array, colors: PackedColorArray, uvs: PackedVector2Array = PackedVector2Array(), texture: RID = RID())
+- canvas_item_add_polyline(item: RID, points: PackedVector2Array, colors: PackedColorArray, width: float = -1.0, antialiased: bool = false)
+- canvas_item_add_primitive(item: RID, points: PackedVector2Array, colors: PackedColorArray, uvs: PackedVector2Array, texture: RID)
+- canvas_item_add_rect(item: RID, rect: Rect2, color: Color, antialiased: bool = false)
+- canvas_item_add_set_transform(item: RID, transform: Transform2D)
+- canvas_item_add_texture_rect(item: RID, rect: Rect2, texture: RID, tile: bool = false, modulate: Color = Color(1, 1, 1, 1), transpose: bool = false)
+- canvas_item_add_texture_rect_region(item: RID, rect: Rect2, texture: RID, src_rect: Rect2, modulate: Color = Color(1, 1, 1, 1), transpose: bool = false, clip_uv: bool = true)
+- canvas_item_add_triangle_array(item: RID, indices: PackedInt32Array, points: PackedVector2Array, colors: PackedColorArray, uvs: PackedVector2Array = PackedVector2Array(), bones: PackedInt32Array = PackedInt32Array(), weights: PackedFloat32Array = PackedFloat32Array(), texture: RID = RID(), count: int = -1)
+- canvas_item_attach_skeleton(item: RID, skeleton: RID)
+- canvas_item_clear(item: RID)
+- canvas_item_create() -> RID
+- canvas_item_get_instance_shader_parameter(instance: RID, parameter: StringName) -> Variant
+- canvas_item_get_instance_shader_parameter_default_value(instance: RID, parameter: StringName) -> Variant
+- canvas_item_get_instance_shader_parameter_list(instance: RID) -> Dictionary[]
+- canvas_item_reset_physics_interpolation(item: RID)
+- canvas_item_set_canvas_group_mode(item: RID, mode: int, clear_margin: float = 5.0, fit_empty: bool = false, fit_margin: float = 0.0, blur_mipmaps: bool = false)
+- canvas_item_set_clip(item: RID, clip: bool)
+- canvas_item_set_copy_to_backbuffer(item: RID, enabled: bool, rect: Rect2)
+- canvas_item_set_custom_rect(item: RID, use_custom_rect: bool, rect: Rect2 = Rect2(0, 0, 0, 0))
+- canvas_item_set_default_texture_filter(item: RID, filter: int)
+- canvas_item_set_default_texture_repeat(item: RID, repeat: int)
+- canvas_item_set_distance_field_mode(item: RID, enabled: bool)
+- canvas_item_set_draw_behind_parent(item: RID, enabled: bool)
+- canvas_item_set_draw_index(item: RID, index: int)
+- canvas_item_set_instance_shader_parameter(instance: RID, parameter: StringName, value: Variant)
+- canvas_item_set_interpolated(item: RID, interpolated: bool)
+- canvas_item_set_light_mask(item: RID, mask: int)
+- canvas_item_set_material(item: RID, material: RID)
+- canvas_item_set_modulate(item: RID, color: Color)
+- canvas_item_set_parent(item: RID, parent: RID)
+- canvas_item_set_self_modulate(item: RID, color: Color)
+- canvas_item_set_sort_children_by_y(item: RID, enabled: bool)
+- canvas_item_set_transform(item: RID, transform: Transform2D)
+- canvas_item_set_use_parent_material(item: RID, enabled: bool)
+- canvas_item_set_visibility_layer(item: RID, visibility_layer: int)
+- canvas_item_set_visibility_notifier(item: RID, enable: bool, area: Rect2, enter_callable: Callable, exit_callable: Callable)
+- canvas_item_set_visible(item: RID, visible: bool)
+- canvas_item_set_z_as_relative_to_parent(item: RID, enabled: bool)
+- canvas_item_set_z_index(item: RID, z_index: int)
+- canvas_item_transform_physics_interpolation(item: RID, transform: Transform2D)
+- canvas_light_attach_to_canvas(light: RID, canvas: RID)
+- canvas_light_create() -> RID
+- canvas_light_occluder_attach_to_canvas(occluder: RID, canvas: RID)
+- canvas_light_occluder_create() -> RID
+- canvas_light_occluder_reset_physics_interpolation(occluder: RID)
+- canvas_light_occluder_set_as_sdf_collision(occluder: RID, enable: bool)
+- canvas_light_occluder_set_enabled(occluder: RID, enabled: bool)
+- canvas_light_occluder_set_interpolated(occluder: RID, interpolated: bool)
+- canvas_light_occluder_set_light_mask(occluder: RID, mask: int)
+- canvas_light_occluder_set_polygon(occluder: RID, polygon: RID)
+- canvas_light_occluder_set_transform(occluder: RID, transform: Transform2D)
+- canvas_light_occluder_transform_physics_interpolation(occluder: RID, transform: Transform2D)
+- canvas_light_reset_physics_interpolation(light: RID)
+- canvas_light_set_blend_mode(light: RID, mode: int)
+- canvas_light_set_color(light: RID, color: Color)
+- canvas_light_set_enabled(light: RID, enabled: bool)
+- canvas_light_set_energy(light: RID, energy: float)
+- canvas_light_set_height(light: RID, height: float)
+- canvas_light_set_interpolated(light: RID, interpolated: bool)
+- canvas_light_set_item_cull_mask(light: RID, mask: int)
+- canvas_light_set_item_shadow_cull_mask(light: RID, mask: int)
+- canvas_light_set_layer_range(light: RID, min_layer: int, max_layer: int)
+- canvas_light_set_mode(light: RID, mode: int)
+- canvas_light_set_shadow_color(light: RID, color: Color)
+- canvas_light_set_shadow_enabled(light: RID, enabled: bool)
+- canvas_light_set_shadow_filter(light: RID, filter: int)
+- canvas_light_set_shadow_smooth(light: RID, smooth: float)
+- canvas_light_set_texture(light: RID, texture: RID)
+- canvas_light_set_texture_offset(light: RID, offset: Vector2)
+- canvas_light_set_texture_scale(light: RID, scale: float)
+- canvas_light_set_transform(light: RID, transform: Transform2D)
+- canvas_light_set_z_range(light: RID, min_z: int, max_z: int)
+- canvas_light_transform_physics_interpolation(light: RID, transform: Transform2D)
+- canvas_occluder_polygon_create() -> RID
+- canvas_occluder_polygon_set_cull_mode(occluder_polygon: RID, mode: int)
+- canvas_occluder_polygon_set_shape(occluder_polygon: RID, shape: PackedVector2Array, closed: bool)
+- canvas_set_disable_scale(disable: bool)
+- canvas_set_item_mirroring(canvas: RID, item: RID, mirroring: Vector2)
+- canvas_set_item_repeat(item: RID, repeat_size: Vector2, repeat_times: int)
+- canvas_set_modulate(canvas: RID, color: Color)
+- canvas_set_shadow_texture_size(size: int)
+- canvas_texture_create() -> RID
+- canvas_texture_set_channel(canvas_texture: RID, channel: int, texture: RID)
+- canvas_texture_set_shading_parameters(canvas_texture: RID, base_color: Color, shininess: float)
+- canvas_texture_set_texture_filter(canvas_texture: RID, filter: int)
+- canvas_texture_set_texture_repeat(canvas_texture: RID, repeat: int)
+- compositor_create() -> RID
+- compositor_effect_create() -> RID
+- compositor_effect_set_callback(effect: RID, callback_type: int, callback: Callable)
+- compositor_effect_set_enabled(effect: RID, enabled: bool)
+- compositor_effect_set_flag(effect: RID, flag: int, set: bool)
+- compositor_set_compositor_effects(compositor: RID, effects: RID[])
+- create_local_rendering_device() -> RenderingDevice
+- debug_canvas_item_get_rect(item: RID) -> Rect2
+- decal_create() -> RID
+- decal_set_albedo_mix(decal: RID, albedo_mix: float)
+- decal_set_cull_mask(decal: RID, mask: int)
+- decal_set_distance_fade(decal: RID, enabled: bool, begin: float, length: float)
+- decal_set_emission_energy(decal: RID, energy: float)
+- decal_set_fade(decal: RID, above: float, below: float)
+- decal_set_modulate(decal: RID, color: Color)
+- decal_set_normal_fade(decal: RID, fade: float)
+- decal_set_size(decal: RID, size: Vector3)
+- decal_set_texture(decal: RID, type: int, texture: RID)
+- decals_set_filter(filter: int)
+- directional_light_create() -> RID
+- directional_shadow_atlas_set_size(size: int, is_16bits: bool)
+- directional_soft_shadow_filter_set_quality(quality: int)
+- environment_bake_panorama(environment: RID, bake_irradiance: bool, size: Vector2i) -> Image
+- environment_create() -> RID
+- environment_glow_set_use_bicubic_upscale(enable: bool)
+- environment_set_adjustment(env: RID, enable: bool, brightness: float, contrast: float, saturation: float, use_1d_color_correction: bool, color_correction: RID)
+- environment_set_ambient_light(env: RID, color: Color, ambient: int = 0, energy: float = 1.0, sky_contribution: float = 0.0, reflection_source: int = 0)
+- environment_set_background(env: RID, bg: int)
+- environment_set_bg_color(env: RID, color: Color)
+- environment_set_bg_energy(env: RID, multiplier: float, exposure_value: float)
+- environment_set_camera_id(env: RID, id: int)
+- environment_set_canvas_max_layer(env: RID, max_layer: int)
+- environment_set_fog(env: RID, enable: bool, light_color: Color, light_energy: float, sun_scatter: float, density: float, height: float, height_density: float, aerial_perspective: float, sky_affect: float, fog_mode: int = 0)
+- environment_set_fog_depth(env: RID, curve: float, begin: float, end: float)
+- environment_set_glow(env: RID, enable: bool, levels: PackedFloat32Array, intensity: float, strength: float, mix: float, bloom_threshold: float, blend_mode: int, hdr_bleed_threshold: float, hdr_bleed_scale: float, hdr_luminance_cap: float, glow_map_strength: float, glow_map: RID)
+- environment_set_sdfgi(env: RID, enable: bool, cascades: int, min_cell_size: float, y_scale: int, use_occlusion: bool, bounce_feedback: float, read_sky: bool, energy: float, normal_bias: float, probe_bias: float)
+- environment_set_sdfgi_frames_to_converge(frames: int)
+- environment_set_sdfgi_frames_to_update_light(frames: int)
+- environment_set_sdfgi_ray_count(ray_count: int)
+- environment_set_sky(env: RID, sky: RID)
+- environment_set_sky_custom_fov(env: RID, scale: float)
+- environment_set_sky_orientation(env: RID, orientation: Basis)
+- environment_set_ssao(env: RID, enable: bool, radius: float, intensity: float, power: float, detail: float, horizon: float, sharpness: float, light_affect: float, ao_channel_affect: float)
+- environment_set_ssao_quality(quality: int, half_size: bool, adaptive_target: float, blur_passes: int, fadeout_from: float, fadeout_to: float)
+- environment_set_ssil_quality(quality: int, half_size: bool, adaptive_target: float, blur_passes: int, fadeout_from: float, fadeout_to: float)
+- environment_set_ssr(env: RID, enable: bool, max_steps: int, fade_in: float, fade_out: float, depth_tolerance: float)
+- environment_set_ssr_half_size(half_size: bool)
+- environment_set_ssr_roughness_quality(quality: int)
+- environment_set_tonemap(env: RID, tone_mapper: int, exposure: float, white: float)
+- environment_set_tonemap_agx_contrast(env: RID, agx_contrast: float)
+- environment_set_volumetric_fog(env: RID, enable: bool, density: float, albedo: Color, emission: Color, emission_energy: float, anisotropy: float, length: float, p_detail_spread: float, gi_inject: float, temporal_reprojection: bool, temporal_reprojection_amount: float, ambient_inject: float, sky_affect: float)
+- environment_set_volumetric_fog_filter_active(active: bool)
+- environment_set_volumetric_fog_volume_size(size: int, depth: int)
+- fog_volume_create() -> RID
+- fog_volume_set_material(fog_volume: RID, material: RID)
+- fog_volume_set_shape(fog_volume: RID, shape: int)
+- fog_volume_set_size(fog_volume: RID, size: Vector3)
+- force_draw(swap_buffers: bool = true, frame_step: float = 0.0)
+- force_sync()
+- free_rid(rid: RID)
+- get_current_rendering_driver_name() -> String
+- get_current_rendering_method() -> String
+- get_default_clear_color() -> Color
+- get_frame_setup_time_cpu() -> float
+- get_rendering_device() -> RenderingDevice
+- get_rendering_info(info: int) -> int
+- get_shader_parameter_list(shader: RID) -> Dictionary[]
+- get_test_cube() -> RID
+- get_test_texture() -> RID
+- get_video_adapter_api_version() -> String
+- get_video_adapter_name() -> String
+- get_video_adapter_type() -> int
+- get_video_adapter_vendor() -> String
+- get_white_texture() -> RID
+- gi_set_use_half_resolution(half_resolution: bool)
+- global_shader_parameter_add(name: StringName, type: int, default_value: Variant)
+- global_shader_parameter_get(name: StringName) -> Variant
+- global_shader_parameter_get_list() -> StringName[]
+- global_shader_parameter_get_type(name: StringName) -> int
+- global_shader_parameter_remove(name: StringName)
+- global_shader_parameter_set(name: StringName, value: Variant)
+- global_shader_parameter_set_override(name: StringName, value: Variant)
+- has_changed() -> bool
+- has_feature(feature: int) -> bool
+- has_os_feature(feature: String) -> bool
+- instance_attach_object_instance_id(instance: RID, id: int)
+- instance_attach_skeleton(instance: RID, skeleton: RID)
+- instance_create() -> RID
+- instance_create2(base: RID, scenario: RID) -> RID
+- instance_geometry_get_shader_parameter(instance: RID, parameter: StringName) -> Variant
+- instance_geometry_get_shader_parameter_default_value(instance: RID, parameter: StringName) -> Variant
+- instance_geometry_get_shader_parameter_list(instance: RID) -> Dictionary[]
+- instance_geometry_set_cast_shadows_setting(instance: RID, shadow_casting_setting: int)
+- instance_geometry_set_flag(instance: RID, flag: int, enabled: bool)
+- instance_geometry_set_lightmap(instance: RID, lightmap: RID, lightmap_uv_scale: Rect2, lightmap_slice: int)
+- instance_geometry_set_lod_bias(instance: RID, lod_bias: float)
+- instance_geometry_set_material_overlay(instance: RID, material: RID)
+- instance_geometry_set_material_override(instance: RID, material: RID)
+- instance_geometry_set_shader_parameter(instance: RID, parameter: StringName, value: Variant)
+- instance_geometry_set_transparency(instance: RID, transparency: float)
+- instance_geometry_set_visibility_range(instance: RID, min: float, max: float, min_margin: float, max_margin: float, fade_mode: int)
+- instance_set_base(instance: RID, base: RID)
+- instance_set_blend_shape_weight(instance: RID, shape: int, weight: float)
+- instance_set_custom_aabb(instance: RID, aabb: AABB)
+- instance_set_extra_visibility_margin(instance: RID, margin: float)
+- instance_set_ignore_culling(instance: RID, enabled: bool)
+- instance_set_layer_mask(instance: RID, mask: int)
+- instance_set_pivot_data(instance: RID, sorting_offset: float, use_aabb_center: bool)
+- instance_set_scenario(instance: RID, scenario: RID)
+- instance_set_surface_override_material(instance: RID, surface: int, material: RID)
+- instance_set_transform(instance: RID, transform: Transform3D)
+- instance_set_visibility_parent(instance: RID, parent: RID)
+- instance_set_visible(instance: RID, visible: bool)
+- instance_teleport(instance: RID)
+- instances_cull_aabb(aabb: AABB, scenario: RID = RID()) -> PackedInt64Array
+- instances_cull_convex(convex: Plane[], scenario: RID = RID()) -> PackedInt64Array
+- instances_cull_ray(from: Vector3, to: Vector3, scenario: RID = RID()) -> PackedInt64Array
+- is_on_render_thread() -> bool
+- light_directional_set_blend_splits(light: RID, enable: bool)
+- light_directional_set_shadow_mode(light: RID, mode: int)
+- light_directional_set_sky_mode(light: RID, mode: int)
+- light_omni_set_shadow_mode(light: RID, mode: int)
+- light_projectors_set_filter(filter: int)
+- light_set_bake_mode(light: RID, bake_mode: int)
+- light_set_color(light: RID, color: Color)
+- light_set_cull_mask(light: RID, mask: int)
+- light_set_distance_fade(decal: RID, enabled: bool, begin: float, shadow: float, length: float)
+- light_set_max_sdfgi_cascade(light: RID, cascade: int)
+- light_set_negative(light: RID, enable: bool)
+- light_set_param(light: RID, param: int, value: float)
+- light_set_projector(light: RID, texture: RID)
+- light_set_reverse_cull_face_mode(light: RID, enabled: bool)
+- light_set_shadow(light: RID, enabled: bool)
+- light_set_shadow_caster_mask(light: RID, mask: int)
+- lightmap_create() -> RID
+- lightmap_get_probe_capture_bsp_tree(lightmap: RID) -> PackedInt32Array
+- lightmap_get_probe_capture_points(lightmap: RID) -> PackedVector3Array
+- lightmap_get_probe_capture_sh(lightmap: RID) -> PackedColorArray
+- lightmap_get_probe_capture_tetrahedra(lightmap: RID) -> PackedInt32Array
+- lightmap_set_baked_exposure_normalization(lightmap: RID, baked_exposure: float)
+- lightmap_set_probe_bounds(lightmap: RID, bounds: AABB)
+- lightmap_set_probe_capture_data(lightmap: RID, points: PackedVector3Array, point_sh: PackedColorArray, tetrahedra: PackedInt32Array, bsp_tree: PackedInt32Array)
+- lightmap_set_probe_capture_update_speed(speed: float)
+- lightmap_set_probe_interior(lightmap: RID, interior: bool)
+- lightmap_set_textures(lightmap: RID, light: RID, uses_sh: bool)
+- lightmaps_set_bicubic_filter(enable: bool)
+- make_sphere_mesh(latitudes: int, longitudes: int, radius: float) -> RID
+- material_create() -> RID
+- material_get_param(material: RID, parameter: StringName) -> Variant
+- material_set_next_pass(material: RID, next_material: RID)
+- material_set_param(material: RID, parameter: StringName, value: Variant)
+- material_set_render_priority(material: RID, priority: int)
+- material_set_shader(shader_material: RID, shader: RID)
+- material_set_use_debanding(enable: bool)
+- mesh_add_surface(mesh: RID, surface: Dictionary)
+- mesh_add_surface_from_arrays(mesh: RID, primitive: int, arrays: Array, blend_shapes: Array = [], lods: Dictionary = {}, compress_format: int = 0)
+- mesh_clear(mesh: RID)
+- mesh_create() -> RID
+- mesh_create_from_surfaces(surfaces: Dictionary[], blend_shape_count: int = 0) -> RID
+- mesh_get_blend_shape_count(mesh: RID) -> int
+- mesh_get_blend_shape_mode(mesh: RID) -> int
+- mesh_get_custom_aabb(mesh: RID) -> AABB
+- mesh_get_surface(mesh: RID, surface: int) -> Dictionary
+- mesh_get_surface_count(mesh: RID) -> int
+- mesh_set_blend_shape_mode(mesh: RID, mode: int)
+- mesh_set_custom_aabb(mesh: RID, aabb: AABB)
+- mesh_set_shadow_mesh(mesh: RID, shadow_mesh: RID)
+- mesh_surface_get_arrays(mesh: RID, surface: int) -> Array
+- mesh_surface_get_blend_shape_arrays(mesh: RID, surface: int) -> Array[]
+- mesh_surface_get_format_attribute_stride(format: int, vertex_count: int) -> int
+- mesh_surface_get_format_index_stride(format: int, vertex_count: int) -> int
+- mesh_surface_get_format_normal_tangent_stride(format: int, vertex_count: int) -> int
+- mesh_surface_get_format_offset(format: int, vertex_count: int, array_index: int) -> int
+- mesh_surface_get_format_skin_stride(format: int, vertex_count: int) -> int
+- mesh_surface_get_format_vertex_stride(format: int, vertex_count: int) -> int
+- mesh_surface_get_material(mesh: RID, surface: int) -> RID
+- mesh_surface_remove(mesh: RID, surface: int)
+- mesh_surface_set_material(mesh: RID, surface: int, material: RID)
+- mesh_surface_update_attribute_region(mesh: RID, surface: int, offset: int, data: PackedByteArray)
+- mesh_surface_update_index_region(mesh: RID, surface: int, offset: int, data: PackedByteArray)
+- mesh_surface_update_skin_region(mesh: RID, surface: int, offset: int, data: PackedByteArray)
+- mesh_surface_update_vertex_region(mesh: RID, surface: int, offset: int, data: PackedByteArray)
+- multimesh_allocate_data(multimesh: RID, instances: int, transform_format: int, color_format: bool = false, custom_data_format: bool = false, use_indirect: bool = false)
+- multimesh_create() -> RID
+- multimesh_get_aabb(multimesh: RID) -> AABB
+- multimesh_get_buffer(multimesh: RID) -> PackedFloat32Array
+- multimesh_get_buffer_rd_rid(multimesh: RID) -> RID
+- multimesh_get_command_buffer_rd_rid(multimesh: RID) -> RID
+- multimesh_get_custom_aabb(multimesh: RID) -> AABB
+- multimesh_get_instance_count(multimesh: RID) -> int
+- multimesh_get_mesh(multimesh: RID) -> RID
+- multimesh_get_visible_instances(multimesh: RID) -> int
+- multimesh_instance_get_color(multimesh: RID, index: int) -> Color
+- multimesh_instance_get_custom_data(multimesh: RID, index: int) -> Color
+- multimesh_instance_get_transform(multimesh: RID, index: int) -> Transform3D
+- multimesh_instance_get_transform_2d(multimesh: RID, index: int) -> Transform2D
+- multimesh_instance_reset_physics_interpolation(multimesh: RID, index: int)
+- multimesh_instance_set_color(multimesh: RID, index: int, color: Color)
+- multimesh_instance_set_custom_data(multimesh: RID, index: int, custom_data: Color)
+- multimesh_instance_set_transform(multimesh: RID, index: int, transform: Transform3D)
+- multimesh_instance_set_transform_2d(multimesh: RID, index: int, transform: Transform2D)
+- multimesh_instances_reset_physics_interpolation(multimesh: RID)
+- multimesh_set_buffer(multimesh: RID, buffer: PackedFloat32Array)
+- multimesh_set_buffer_interpolated(multimesh: RID, buffer: PackedFloat32Array, buffer_previous: PackedFloat32Array)
+- multimesh_set_custom_aabb(multimesh: RID, aabb: AABB)
+- multimesh_set_mesh(multimesh: RID, mesh: RID)
+- multimesh_set_physics_interpolated(multimesh: RID, interpolated: bool)
+- multimesh_set_physics_interpolation_quality(multimesh: RID, quality: int)
+- multimesh_set_visible_instances(multimesh: RID, visible: int)
+- occluder_create() -> RID
+- occluder_set_mesh(occluder: RID, vertices: PackedVector3Array, indices: PackedInt32Array)
+- omni_light_create() -> RID
+- particles_collision_create() -> RID
+- particles_collision_height_field_update(particles_collision: RID)
+- particles_collision_set_attractor_attenuation(particles_collision: RID, curve: float)
+- particles_collision_set_attractor_directionality(particles_collision: RID, amount: float)
+- particles_collision_set_attractor_strength(particles_collision: RID, strength: float)
+- particles_collision_set_box_extents(particles_collision: RID, extents: Vector3)
+- particles_collision_set_collision_type(particles_collision: RID, type: int)
+- particles_collision_set_cull_mask(particles_collision: RID, mask: int)
+- particles_collision_set_field_texture(particles_collision: RID, texture: RID)
+- particles_collision_set_height_field_mask(particles_collision: RID, mask: int)
+- particles_collision_set_height_field_resolution(particles_collision: RID, resolution: int)
+- particles_collision_set_sphere_radius(particles_collision: RID, radius: float)
+- particles_create() -> RID
+- particles_emit(particles: RID, transform: Transform3D, velocity: Vector3, color: Color, custom: Color, emit_flags: int)
+- particles_get_current_aabb(particles: RID) -> AABB
+- particles_get_emitting(particles: RID) -> bool
+- particles_is_inactive(particles: RID) -> bool
+- particles_request_process(particles: RID)
+- particles_request_process_time(particles: RID, time: float)
+- particles_restart(particles: RID)
+- particles_set_amount(particles: RID, amount: int)
+- particles_set_amount_ratio(particles: RID, ratio: float)
+- particles_set_collision_base_size(particles: RID, size: float)
+- particles_set_custom_aabb(particles: RID, aabb: AABB)
+- particles_set_draw_order(particles: RID, order: int)
+- particles_set_draw_pass_mesh(particles: RID, pass: int, mesh: RID)
+- particles_set_draw_passes(particles: RID, count: int)
+- particles_set_emission_transform(particles: RID, transform: Transform3D)
+- particles_set_emitter_velocity(particles: RID, velocity: Vector3)
+- particles_set_emitting(particles: RID, emitting: bool)
+- particles_set_explosiveness_ratio(particles: RID, ratio: float)
+- particles_set_fixed_fps(particles: RID, fps: int)
+- particles_set_fractional_delta(particles: RID, enable: bool)
+- particles_set_interp_to_end(particles: RID, factor: float)
+- particles_set_interpolate(particles: RID, enable: bool)
+- particles_set_lifetime(particles: RID, lifetime: float)
+- particles_set_mode(particles: RID, mode: int)
+- particles_set_one_shot(particles: RID, one_shot: bool)
+- particles_set_pre_process_time(particles: RID, time: float)
+- particles_set_process_material(particles: RID, material: RID)
+- particles_set_randomness_ratio(particles: RID, ratio: float)
+- particles_set_speed_scale(particles: RID, scale: float)
+- particles_set_subemitter(particles: RID, subemitter_particles: RID)
+- particles_set_trail_bind_poses(particles: RID, bind_poses: Transform3D[])
+- particles_set_trails(particles: RID, enable: bool, length_sec: float)
+- particles_set_transform_align(particles: RID, align: int)
+- particles_set_transform_align_axis(particles: RID, p_rotation_axis: int)
+- particles_set_transform_align_channel_filter(particles: RID, channel_filter: int)
+- particles_set_use_local_coordinates(particles: RID, enable: bool)
+- positional_soft_shadow_filter_set_quality(quality: int)
+- reflection_probe_create() -> RID
+- reflection_probe_set_ambient_color(probe: RID, color: Color)
+- reflection_probe_set_ambient_energy(probe: RID, energy: float)
+- reflection_probe_set_ambient_mode(probe: RID, mode: int)
+- reflection_probe_set_as_interior(probe: RID, enable: bool)
+- reflection_probe_set_blend_distance(probe: RID, blend_distance: float)
+- reflection_probe_set_cull_mask(probe: RID, layers: int)
+- reflection_probe_set_enable_box_projection(probe: RID, enable: bool)
+- reflection_probe_set_enable_shadows(probe: RID, enable: bool)
+- reflection_probe_set_intensity(probe: RID, intensity: float)
+- reflection_probe_set_max_distance(probe: RID, distance: float)
+- reflection_probe_set_mesh_lod_threshold(probe: RID, pixels: float)
+- reflection_probe_set_origin_offset(probe: RID, offset: Vector3)
+- reflection_probe_set_reflection_mask(probe: RID, layers: int)
+- reflection_probe_set_resolution(probe: RID, resolution: int)
+- reflection_probe_set_size(probe: RID, size: Vector3)
+- reflection_probe_set_update_mode(probe: RID, mode: int)
+- request_frame_drawn_callback(callable: Callable)
+- scenario_create() -> RID
+- scenario_set_camera_attributes(scenario: RID, effects: RID)
+- scenario_set_compositor(scenario: RID, compositor: RID)
+- scenario_set_environment(scenario: RID, environment: RID)
+- scenario_set_fallback_environment(scenario: RID, environment: RID)
+- screen_space_roughness_limiter_set_active(enable: bool, amount: float, limit: float)
+- set_boot_image(image: Image, color: Color, scale: bool, use_filter: bool = true)
+- set_boot_image_with_stretch(image: Image, color: Color, stretch_mode: int, use_filter: bool = true)
+- set_debug_generate_wireframes(generate: bool)
+- set_default_clear_color(color: Color)
+- shader_create() -> RID
+- shader_get_code(shader: RID) -> String
+- shader_get_default_texture_parameter(shader: RID, name: StringName, index: int = 0) -> RID
+- shader_get_parameter_default(shader: RID, name: StringName) -> Variant
+- shader_set_code(shader: RID, code: String)
+- shader_set_default_texture_parameter(shader: RID, name: StringName, texture: RID, index: int = 0)
+- shader_set_path_hint(shader: RID, path: String)
+- skeleton_allocate_data(skeleton: RID, bones: int, is_2d_skeleton: bool = false)
+- skeleton_bone_get_transform(skeleton: RID, bone: int) -> Transform3D
+- skeleton_bone_get_transform_2d(skeleton: RID, bone: int) -> Transform2D
+- skeleton_bone_set_transform(skeleton: RID, bone: int, transform: Transform3D)
+- skeleton_bone_set_transform_2d(skeleton: RID, bone: int, transform: Transform2D)
+- skeleton_create() -> RID
+- skeleton_get_bone_count(skeleton: RID) -> int
+- skeleton_set_base_transform_2d(skeleton: RID, base_transform: Transform2D)
+- sky_bake_panorama(sky: RID, energy: float, bake_irradiance: bool, size: Vector2i) -> Image
+- sky_create() -> RID
+- sky_set_material(sky: RID, material: RID)
+- sky_set_mode(sky: RID, mode: int)
+- sky_set_radiance_size(sky: RID, radiance_size: int)
+- spot_light_create() -> RID
+- sub_surface_scattering_set_quality(quality: int)
+- sub_surface_scattering_set_scale(scale: float, depth_scale: float)
+- texture_2d_create(image: Image) -> RID
+- texture_2d_get(texture: RID) -> Image
+- texture_2d_layer_get(texture: RID, layer: int) -> Image
+- texture_2d_layered_create(layers: Image[], layered_type: int) -> RID
+- texture_2d_layered_placeholder_create(layered_type: int) -> RID
+- texture_2d_placeholder_create() -> RID
+- texture_2d_update(texture: RID, image: Image, layer: int)
+- texture_3d_create(format: int, width: int, height: int, depth: int, mipmaps: bool, data: Image[]) -> RID
+- texture_3d_get(texture: RID) -> Image[]
+- texture_3d_placeholder_create() -> RID
+- texture_3d_update(texture: RID, data: Image[])
+- texture_create_from_native_handle(type: int, format: int, native_handle: int, width: int, height: int, depth: int, layers: int = 1, layered_type: int = 0) -> RID
+- texture_drawable_blit_rect(textures: RID[], rect: Rect2i, material: RID, modulate: Color, source_textures: RID[], to_mipmap: int = 0)
+- texture_drawable_create(width: int, height: int, format: int, color: Color = Color(1, 1, 1, 1), with_mipmaps: bool = false) -> RID
+- texture_drawable_generate_mipmaps(texture: RID)
+- texture_drawable_get_default_material() -> RID
+- texture_get_format(texture: RID) -> int
+- texture_get_native_handle(texture: RID, srgb: bool = false) -> int
+- texture_get_path(texture: RID) -> String
+- texture_get_rd_texture(texture: RID, srgb: bool = false) -> RID
+- texture_proxy_create(base: RID) -> RID
+- texture_proxy_update(texture: RID, proxy_to: RID)
+- texture_rd_create(rd_texture: RID, layer_type: int = 0) -> RID
+- texture_replace(texture: RID, by_texture: RID)
+- texture_set_force_redraw_if_visible(texture: RID, enable: bool)
+- texture_set_path(texture: RID, path: String)
+- texture_set_size_override(texture: RID, width: int, height: int)
+- viewport_attach_camera(viewport: RID, camera: RID)
+- viewport_attach_canvas(viewport: RID, canvas: RID)
+- viewport_attach_to_screen(viewport: RID, rect: Rect2 = Rect2(0, 0, 0, 0), screen: int = 0)
+- viewport_create() -> RID
+- viewport_get_measured_render_time_cpu(viewport: RID) -> float
+- viewport_get_measured_render_time_gpu(viewport: RID) -> float
+- viewport_get_render_info(viewport: RID, type: int, info: int) -> int
+- viewport_get_render_target(viewport: RID) -> RID
+- viewport_get_texture(viewport: RID) -> RID
+- viewport_get_update_mode(viewport: RID) -> int
+- viewport_remove_canvas(viewport: RID, canvas: RID)
+- viewport_set_active(viewport: RID, active: bool)
+- viewport_set_anisotropic_filtering_level(viewport: RID, anisotropic_filtering_level: int)
+- viewport_set_canvas_cull_mask(viewport: RID, canvas_cull_mask: int)
+- viewport_set_canvas_stacking(viewport: RID, canvas: RID, layer: int, sublayer: int)
+- viewport_set_canvas_transform(viewport: RID, canvas: RID, offset: Transform2D)
+- viewport_set_clear_mode(viewport: RID, clear_mode: int)
+- viewport_set_debug_draw(viewport: RID, draw: int)
+- viewport_set_default_canvas_item_texture_filter(viewport: RID, filter: int)
+- viewport_set_default_canvas_item_texture_repeat(viewport: RID, repeat: int)
+- viewport_set_disable_2d(viewport: RID, disable: bool)
+- viewport_set_disable_3d(viewport: RID, disable: bool)
+- viewport_set_environment_mode(viewport: RID, mode: int)
+- viewport_set_fsr_sharpness(viewport: RID, sharpness: float)
+- viewport_set_global_canvas_transform(viewport: RID, transform: Transform2D)
+- viewport_set_measure_render_time(viewport: RID, enable: bool)
+- viewport_set_msaa_2d(viewport: RID, msaa: int)
+- viewport_set_msaa_3d(viewport: RID, msaa: int)
+- viewport_set_occlusion_culling_build_quality(quality: int)
+- viewport_set_occlusion_rays_per_thread(rays_per_thread: int)
+- viewport_set_parent_viewport(viewport: RID, parent_viewport: RID)
+- viewport_set_positional_shadow_atlas_quadrant_subdivision(viewport: RID, quadrant: int, subdivision: int)
+- viewport_set_positional_shadow_atlas_size(viewport: RID, size: int, use_16_bits: bool = false)
+- viewport_set_render_direct_to_screen(viewport: RID, enabled: bool)
+- viewport_set_scaling_3d_mode(viewport: RID, scaling_3d_mode: int)
+- viewport_set_scaling_3d_scale(viewport: RID, scale: float)
+- viewport_set_scenario(viewport: RID, scenario: RID)
+- viewport_set_screen_space_aa(viewport: RID, mode: int)
+- viewport_set_sdf_oversize_and_scale(viewport: RID, oversize: int, scale: int)
+- viewport_set_size(viewport: RID, width: int, height: int, view_count: int = 1)
+- viewport_set_snap_2d_transforms_to_pixel(viewport: RID, enabled: bool)
+- viewport_set_snap_2d_vertices_to_pixel(viewport: RID, enabled: bool)
+- viewport_set_texture_mipmap_bias(viewport: RID, mipmap_bias: float)
+- viewport_set_transparent_background(viewport: RID, enabled: bool)
+- viewport_set_update_mode(viewport: RID, update_mode: int)
+- viewport_set_use_debanding(viewport: RID, enable: bool)
+- viewport_set_use_hdr_2d(viewport: RID, enabled: bool)
+- viewport_set_use_occlusion_culling(viewport: RID, enable: bool)
+- viewport_set_use_taa(viewport: RID, enable: bool)
+- viewport_set_use_xr(viewport: RID, use_xr: bool)
+- viewport_set_vrs_mode(viewport: RID, mode: int)
+- viewport_set_vrs_texture(viewport: RID, texture: RID)
+- viewport_set_vrs_update_mode(viewport: RID, mode: int)
+- visibility_notifier_create() -> RID
+- visibility_notifier_set_aabb(notifier: RID, aabb: AABB)
+- visibility_notifier_set_callbacks(notifier: RID, enter_callable: Callable, exit_callable: Callable)
+- voxel_gi_allocate_data(voxel_gi: RID, to_cell_xform: Transform3D, aabb: AABB, octree_size: Vector3i, octree_cells: PackedByteArray, data_cells: PackedByteArray, distance_field: PackedByteArray, level_counts: PackedInt32Array)
+- voxel_gi_create() -> RID
+- voxel_gi_get_data_cells(voxel_gi: RID) -> PackedByteArray
+- voxel_gi_get_distance_field(voxel_gi: RID) -> PackedByteArray
+- voxel_gi_get_level_counts(voxel_gi: RID) -> PackedInt32Array
+- voxel_gi_get_octree_cells(voxel_gi: RID) -> PackedByteArray
+- voxel_gi_get_octree_size(voxel_gi: RID) -> Vector3i
+- voxel_gi_get_to_cell_xform(voxel_gi: RID) -> Transform3D
+- voxel_gi_set_baked_exposure_normalization(voxel_gi: RID, baked_exposure: float)
+- voxel_gi_set_bias(voxel_gi: RID, bias: float)
+- voxel_gi_set_dynamic_range(voxel_gi: RID, range: float)
+- voxel_gi_set_energy(voxel_gi: RID, energy: float)
+- voxel_gi_set_interior(voxel_gi: RID, enable: bool)
+- voxel_gi_set_normal_bias(voxel_gi: RID, bias: float)
+- voxel_gi_set_propagation(voxel_gi: RID, amount: float)
+- voxel_gi_set_quality(quality: int)
+- voxel_gi_set_use_two_bounces(voxel_gi: RID, enable: bool)
+
+**Signals:**
+- frame_post_draw
+- frame_pre_draw

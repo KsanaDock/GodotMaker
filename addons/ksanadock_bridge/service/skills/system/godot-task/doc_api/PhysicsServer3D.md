@@ -1,0 +1,178 @@
+## PhysicsServer3D <- Object
+
+**Methods:**
+- area_add_shape(area: RID, shape: RID, transform: Transform3D = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), disabled: bool = false)
+- area_attach_object_instance_id(area: RID, id: int)
+- area_clear_shapes(area: RID)
+- area_create() -> RID
+- area_get_collision_layer(area: RID) -> int
+- area_get_collision_mask(area: RID) -> int
+- area_get_object_instance_id(area: RID) -> int
+- area_get_param(area: RID, param: int) -> Variant
+- area_get_shape(area: RID, shape_idx: int) -> RID
+- area_get_shape_count(area: RID) -> int
+- area_get_shape_transform(area: RID, shape_idx: int) -> Transform3D
+- area_get_space(area: RID) -> RID
+- area_get_transform(area: RID) -> Transform3D
+- area_remove_shape(area: RID, shape_idx: int)
+- area_set_area_monitor_callback(area: RID, callback: Callable)
+- area_set_collision_layer(area: RID, layer: int)
+- area_set_collision_mask(area: RID, mask: int)
+- area_set_monitor_callback(area: RID, callback: Callable)
+- area_set_monitorable(area: RID, monitorable: bool)
+- area_set_param(area: RID, param: int, value: Variant)
+- area_set_ray_pickable(area: RID, enable: bool)
+- area_set_shape(area: RID, shape_idx: int, shape: RID)
+- area_set_shape_disabled(area: RID, shape_idx: int, disabled: bool)
+- area_set_shape_transform(area: RID, shape_idx: int, transform: Transform3D)
+- area_set_space(area: RID, space: RID)
+- area_set_transform(area: RID, transform: Transform3D)
+- body_add_collision_exception(body: RID, excepted_body: RID)
+- body_add_constant_central_force(body: RID, force: Vector3)
+- body_add_constant_force(body: RID, force: Vector3, position: Vector3 = Vector3(0, 0, 0))
+- body_add_constant_torque(body: RID, torque: Vector3)
+- body_add_shape(body: RID, shape: RID, transform: Transform3D = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0), disabled: bool = false)
+- body_apply_central_force(body: RID, force: Vector3)
+- body_apply_central_impulse(body: RID, impulse: Vector3)
+- body_apply_force(body: RID, force: Vector3, position: Vector3 = Vector3(0, 0, 0))
+- body_apply_impulse(body: RID, impulse: Vector3, position: Vector3 = Vector3(0, 0, 0))
+- body_apply_torque(body: RID, torque: Vector3)
+- body_apply_torque_impulse(body: RID, impulse: Vector3)
+- body_attach_object_instance_id(body: RID, id: int)
+- body_clear_shapes(body: RID)
+- body_create() -> RID
+- body_get_collision_layer(body: RID) -> int
+- body_get_collision_mask(body: RID) -> int
+- body_get_collision_priority(body: RID) -> float
+- body_get_constant_force(body: RID) -> Vector3
+- body_get_constant_torque(body: RID) -> Vector3
+- body_get_direct_state(body: RID) -> PhysicsDirectBodyState3D
+- body_get_max_contacts_reported(body: RID) -> int
+- body_get_mode(body: RID) -> int
+- body_get_object_instance_id(body: RID) -> int
+- body_get_param(body: RID, param: int) -> Variant
+- body_get_shape(body: RID, shape_idx: int) -> RID
+- body_get_shape_count(body: RID) -> int
+- body_get_shape_transform(body: RID, shape_idx: int) -> Transform3D
+- body_get_space(body: RID) -> RID
+- body_get_state(body: RID, state: int) -> Variant
+- body_is_axis_locked(body: RID, axis: int) -> bool
+- body_is_continuous_collision_detection_enabled(body: RID) -> bool
+- body_is_omitting_force_integration(body: RID) -> bool
+- body_remove_collision_exception(body: RID, excepted_body: RID)
+- body_remove_shape(body: RID, shape_idx: int)
+- body_reset_mass_properties(body: RID)
+- body_set_axis_lock(body: RID, axis: int, lock: bool)
+- body_set_axis_velocity(body: RID, axis_velocity: Vector3)
+- body_set_collision_layer(body: RID, layer: int)
+- body_set_collision_mask(body: RID, mask: int)
+- body_set_collision_priority(body: RID, priority: float)
+- body_set_constant_force(body: RID, force: Vector3)
+- body_set_constant_torque(body: RID, torque: Vector3)
+- body_set_enable_continuous_collision_detection(body: RID, enable: bool)
+- body_set_force_integration_callback(body: RID, callable: Callable, userdata: Variant = null)
+- body_set_max_contacts_reported(body: RID, amount: int)
+- body_set_mode(body: RID, mode: int)
+- body_set_omit_force_integration(body: RID, enable: bool)
+- body_set_param(body: RID, param: int, value: Variant)
+- body_set_ray_pickable(body: RID, enable: bool)
+- body_set_shape(body: RID, shape_idx: int, shape: RID)
+- body_set_shape_disabled(body: RID, shape_idx: int, disabled: bool)
+- body_set_shape_transform(body: RID, shape_idx: int, transform: Transform3D)
+- body_set_space(body: RID, space: RID)
+- body_set_state(body: RID, state: int, value: Variant)
+- body_set_state_sync_callback(body: RID, callable: Callable)
+- body_test_motion(body: RID, parameters: PhysicsTestMotionParameters3D, result: PhysicsTestMotionResult3D = null) -> bool
+- box_shape_create() -> RID
+- capsule_shape_create() -> RID
+- concave_polygon_shape_create() -> RID
+- cone_twist_joint_get_param(joint: RID, param: int) -> float
+- cone_twist_joint_set_param(joint: RID, param: int, value: float)
+- convex_polygon_shape_create() -> RID
+- custom_shape_create() -> RID
+- cylinder_shape_create() -> RID
+- free_rid(rid: RID)
+- generic_6dof_joint_get_flag(joint: RID, axis: int, flag: int) -> bool
+- generic_6dof_joint_get_param(joint: RID, axis: int, param: int) -> float
+- generic_6dof_joint_set_flag(joint: RID, axis: int, flag: int, enable: bool)
+- generic_6dof_joint_set_param(joint: RID, axis: int, param: int, value: float)
+- get_process_info(process_info: int) -> int
+- heightmap_shape_create() -> RID
+- hinge_joint_get_flag(joint: RID, flag: int) -> bool
+- hinge_joint_get_param(joint: RID, param: int) -> float
+- hinge_joint_set_flag(joint: RID, flag: int, enabled: bool)
+- hinge_joint_set_param(joint: RID, param: int, value: float)
+- joint_clear(joint: RID)
+- joint_create() -> RID
+- joint_disable_collisions_between_bodies(joint: RID, disable: bool)
+- joint_get_solver_priority(joint: RID) -> int
+- joint_get_type(joint: RID) -> int
+- joint_is_disabled_collisions_between_bodies(joint: RID) -> bool
+- joint_make_cone_twist(joint: RID, body_A: RID, local_ref_A: Transform3D, body_B: RID, local_ref_B: Transform3D)
+- joint_make_generic_6dof(joint: RID, body_A: RID, local_ref_A: Transform3D, body_B: RID, local_ref_B: Transform3D)
+- joint_make_hinge(joint: RID, body_A: RID, hinge_A: Transform3D, body_B: RID, hinge_B: Transform3D)
+- joint_make_pin(joint: RID, body_A: RID, local_A: Vector3, body_B: RID, local_B: Vector3)
+- joint_make_slider(joint: RID, body_A: RID, local_ref_A: Transform3D, body_B: RID, local_ref_B: Transform3D)
+- joint_set_solver_priority(joint: RID, priority: int)
+- pin_joint_get_local_a(joint: RID) -> Vector3
+- pin_joint_get_local_b(joint: RID) -> Vector3
+- pin_joint_get_param(joint: RID, param: int) -> float
+- pin_joint_set_local_a(joint: RID, local_A: Vector3)
+- pin_joint_set_local_b(joint: RID, local_B: Vector3)
+- pin_joint_set_param(joint: RID, param: int, value: float)
+- separation_ray_shape_create() -> RID
+- set_active(active: bool)
+- shape_get_data(shape: RID) -> Variant
+- shape_get_margin(shape: RID) -> float
+- shape_get_type(shape: RID) -> int
+- shape_set_data(shape: RID, data: Variant)
+- shape_set_margin(shape: RID, margin: float)
+- slider_joint_get_param(joint: RID, param: int) -> float
+- slider_joint_set_param(joint: RID, param: int, value: float)
+- soft_body_add_collision_exception(body: RID, body_b: RID)
+- soft_body_apply_central_force(body: RID, force: Vector3)
+- soft_body_apply_central_impulse(body: RID, impulse: Vector3)
+- soft_body_apply_point_force(body: RID, point_index: int, force: Vector3)
+- soft_body_apply_point_impulse(body: RID, point_index: int, impulse: Vector3)
+- soft_body_create() -> RID
+- soft_body_get_bounds(body: RID) -> AABB
+- soft_body_get_collision_layer(body: RID) -> int
+- soft_body_get_collision_mask(body: RID) -> int
+- soft_body_get_damping_coefficient(body: RID) -> float
+- soft_body_get_drag_coefficient(body: RID) -> float
+- soft_body_get_linear_stiffness(body: RID) -> float
+- soft_body_get_point_global_position(body: RID, point_index: int) -> Vector3
+- soft_body_get_pressure_coefficient(body: RID) -> float
+- soft_body_get_shrinking_factor(body: RID) -> float
+- soft_body_get_simulation_precision(body: RID) -> int
+- soft_body_get_space(body: RID) -> RID
+- soft_body_get_state(body: RID, state: int) -> Variant
+- soft_body_get_total_mass(body: RID) -> float
+- soft_body_is_point_pinned(body: RID, point_index: int) -> bool
+- soft_body_move_point(body: RID, point_index: int, global_position: Vector3)
+- soft_body_pin_point(body: RID, point_index: int, pin: bool)
+- soft_body_remove_all_pinned_points(body: RID)
+- soft_body_remove_collision_exception(body: RID, body_b: RID)
+- soft_body_set_collision_layer(body: RID, layer: int)
+- soft_body_set_collision_mask(body: RID, mask: int)
+- soft_body_set_damping_coefficient(body: RID, damping_coefficient: float)
+- soft_body_set_drag_coefficient(body: RID, drag_coefficient: float)
+- soft_body_set_linear_stiffness(body: RID, stiffness: float)
+- soft_body_set_mesh(body: RID, mesh: RID)
+- soft_body_set_pressure_coefficient(body: RID, pressure_coefficient: float)
+- soft_body_set_ray_pickable(body: RID, enable: bool)
+- soft_body_set_shrinking_factor(body: RID, shrinking_factor: float)
+- soft_body_set_simulation_precision(body: RID, simulation_precision: int)
+- soft_body_set_space(body: RID, space: RID)
+- soft_body_set_state(body: RID, state: int, variant: Variant)
+- soft_body_set_total_mass(body: RID, total_mass: float)
+- soft_body_set_transform(body: RID, transform: Transform3D)
+- soft_body_update_rendering_server(body: RID, rendering_server_handler: PhysicsServer3DRenderingServerHandler)
+- space_create() -> RID
+- space_get_direct_state(space: RID) -> PhysicsDirectSpaceState3D
+- space_get_param(space: RID, param: int) -> float
+- space_is_active(space: RID) -> bool
+- space_set_active(space: RID, active: bool)
+- space_set_param(space: RID, param: int, value: float)
+- sphere_shape_create() -> RID
+- world_boundary_shape_create() -> RID

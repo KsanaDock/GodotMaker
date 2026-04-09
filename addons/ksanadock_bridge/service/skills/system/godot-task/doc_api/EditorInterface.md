@@ -1,0 +1,74 @@
+## EditorInterface <- Object
+
+**Props:**
+- distraction_free_mode: bool
+- movie_maker_enabled: bool
+
+**Methods:**
+- add_root_node(node: Node)
+- close_scene() -> int
+- edit_node(node: Node)
+- edit_resource(resource: Resource)
+- edit_script(script: Script, line: int = -1, column: int = 0, grab_focus: bool = true)
+- get_base_control() -> Control
+- get_command_palette() -> EditorCommandPalette
+- get_current_directory() -> String
+- get_current_feature_profile() -> String
+- get_current_path() -> String
+- get_edited_scene_root() -> Node
+- get_editor_language() -> String
+- get_editor_main_screen() -> VBoxContainer
+- get_editor_paths() -> EditorPaths
+- get_editor_scale() -> float
+- get_editor_settings() -> EditorSettings
+- get_editor_theme() -> Theme
+- get_editor_toaster() -> EditorToaster
+- get_editor_undo_redo() -> EditorUndoRedoManager
+- get_editor_viewport_2d() -> SubViewport
+- get_editor_viewport_3d(idx: int = 0) -> SubViewport
+- get_file_system_dock() -> FileSystemDock
+- get_inspector() -> EditorInspector
+- get_node_3d_rotate_snap() -> float
+- get_node_3d_scale_snap() -> float
+- get_node_3d_translate_snap() -> float
+- get_open_scene_roots() -> Node[]
+- get_open_scenes() -> PackedStringArray
+- get_playing_scene() -> String
+- get_resource_filesystem() -> EditorFileSystem
+- get_resource_previewer() -> EditorResourcePreview
+- get_script_editor() -> ScriptEditor
+- get_selected_paths() -> PackedStringArray
+- get_selection() -> EditorSelection
+- get_unsaved_scenes() -> PackedStringArray
+- inspect_object(object: Object, for_property: String = "", inspector_only: bool = false)
+- is_multi_window_enabled() -> bool
+- is_node_3d_snap_enabled() -> bool
+- is_object_edited(object: Object) -> bool
+- is_playing_scene() -> bool
+- is_plugin_enabled(plugin: String) -> bool
+- make_mesh_previews(meshes: Mesh[], preview_size: int) -> Texture2D[]
+- mark_scene_as_unsaved()
+- open_scene_from_path(scene_filepath: String, set_inherited: bool = false)
+- play_current_scene()
+- play_custom_scene(scene_filepath: String)
+- play_main_scene()
+- popup_create_dialog(callback: Callable, base_type: StringName = "", current_type: String = "", dialog_title: String = "", type_blocklist: StringName[] = [])
+- popup_dialog(dialog: Window, rect: Rect2i = Rect2i(0, 0, 0, 0))
+- popup_dialog_centered(dialog: Window, minsize: Vector2i = Vector2i(0, 0))
+- popup_dialog_centered_clamped(dialog: Window, minsize: Vector2i = Vector2i(0, 0), fallback_ratio: float = 0.75)
+- popup_dialog_centered_ratio(dialog: Window, ratio: float = 0.8)
+- popup_method_selector(object: Object, callback: Callable, current_value: String = "")
+- popup_node_selector(callback: Callable, valid_types: StringName[] = [], current_value: Node = null)
+- popup_property_selector(object: Object, callback: Callable, type_filter: PackedInt32Array = PackedInt32Array(), current_value: String = "")
+- popup_quick_open(callback: Callable, base_types: StringName[] = [])
+- reload_scene_from_path(scene_filepath: String)
+- restart_editor(save: bool = true)
+- save_all_scenes()
+- save_scene() -> int
+- save_scene_as(path: String, with_preview: bool = true)
+- select_file(file: String)
+- set_current_feature_profile(profile_name: String)
+- set_main_screen_editor(name: String)
+- set_object_edited(object: Object, edited: bool)
+- set_plugin_enabled(plugin: String, enabled: bool)
+- stop_playing_scene()

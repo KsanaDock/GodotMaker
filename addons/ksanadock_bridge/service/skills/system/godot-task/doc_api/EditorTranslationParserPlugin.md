@@ -1,0 +1,1 @@
+## EditorTranslationParserPlugin <- RefCounted

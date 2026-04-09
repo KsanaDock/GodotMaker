@@ -1,0 +1,1 @@
+## AudioEffectHighPassFilter <- AudioEffectFilter

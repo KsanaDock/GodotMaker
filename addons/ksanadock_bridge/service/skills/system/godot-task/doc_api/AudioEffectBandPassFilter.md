@@ -1,0 +1,1 @@
+## AudioEffectBandPassFilter <- AudioEffectFilter

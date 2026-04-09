@@ -1,0 +1,33 @@
+# Common Classes
+
+- AABB
+- Animation <- Resource
+- AudioStream <- Resource
+- Basis
+- CanvasItem <- Node
+- Control <- CanvasItem
+- Engine <- Object
+- Geometry2D <- Object
+- Geometry3D <- Object
+- Input <- Object
+- InputEvent <- Resource
+- Material <- Resource
+- Mesh <- Resource
+- Node <- Object
+- Node2D <- CanvasItem
+- Node3D <- Node
+- OS <- Object
+- Plane
+- ProjectSettings <- Object
+- Quaternion
+- Rect2
+- Resource <- RefCounted
+- Texture2D <- Texture
+- Time <- Object
+- Transform2D
+- Transform3D
+- Vector2
+- Vector3
+- Vector4
+- Viewport <- Node
+- Window <- Viewport

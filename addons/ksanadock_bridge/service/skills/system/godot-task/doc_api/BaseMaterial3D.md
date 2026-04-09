@@ -1,0 +1,142 @@
+## BaseMaterial3D <- Material
+
+**Props:**
+- albedo_color: Color = Color(1, 1, 1, 1)
+- albedo_texture: Texture2D
+- albedo_texture_force_srgb: bool = false
+- albedo_texture_msdf: bool = false
+- alpha_antialiasing_edge: float
+- alpha_antialiasing_mode: int
+- alpha_hash_scale: float
+- alpha_scissor_threshold: float
+- anisotropy: float = 0.0
+- anisotropy_enabled: bool = false
+- anisotropy_flowmap: Texture2D
+- ao_enabled: bool = false
+- ao_light_affect: float = 0.0
+- ao_on_uv2: bool = false
+- ao_texture: Texture2D
+- ao_texture_channel: int = 0
+- backlight: Color = Color(0, 0, 0, 1)
+- backlight_enabled: bool = false
+- backlight_texture: Texture2D
+- bent_normal_enabled: bool = false
+- bent_normal_texture: Texture2D
+- billboard_keep_scale: bool = false
+- billboard_mode: int = 0
+- blend_mode: int = 0
+- clearcoat: float = 1.0
+- clearcoat_enabled: bool = false
+- clearcoat_roughness: float = 0.5
+- clearcoat_texture: Texture2D
+- cull_mode: int = 0
+- depth_draw_mode: int = 0
+- depth_test: int = 0
+- detail_albedo: Texture2D
+- detail_blend_mode: int = 0
+- detail_enabled: bool = false
+- detail_mask: Texture2D
+- detail_normal: Texture2D
+- detail_uv_layer: int = 0
+- diffuse_mode: int = 0
+- disable_ambient_light: bool = false
+- disable_fog: bool = false
+- disable_receive_shadows: bool = false
+- disable_specular_occlusion: bool = false
+- distance_fade_max_distance: float = 10.0
+- distance_fade_min_distance: float = 0.0
+- distance_fade_mode: int = 0
+- emission: Color = Color(0, 0, 0, 1)
+- emission_enabled: bool = false
+- emission_energy_multiplier: float = 1.0
+- emission_intensity: float
+- emission_on_uv2: bool = false
+- emission_operator: int = 0
+- emission_texture: Texture2D
+- fixed_size: bool = false
+- fov_override: float = 75.0
+- grow: bool = false
+- grow_amount: float = 0.0
+- heightmap_deep_parallax: bool = false
+- heightmap_enabled: bool = false
+- heightmap_flip_binormal: bool = false
+- heightmap_flip_tangent: bool = false
+- heightmap_flip_texture: bool = false
+- heightmap_max_layers: int
+- heightmap_min_layers: int
+- heightmap_scale: float = 5.0
+- heightmap_texture: Texture2D
+- metallic: float = 0.0
+- metallic_specular: float = 0.5
+- metallic_texture: Texture2D
+- metallic_texture_channel: int = 0
+- msdf_outline_size: float = 0.0
+- msdf_pixel_range: float = 4.0
+- no_depth_test: bool = false
+- normal_enabled: bool = false
+- normal_scale: float = 1.0
+- normal_texture: Texture2D
+- orm_texture: Texture2D
+- particles_anim_h_frames: int
+- particles_anim_loop: bool
+- particles_anim_v_frames: int
+- point_size: float = 1.0
+- proximity_fade_distance: float = 1.0
+- proximity_fade_enabled: bool = false
+- refraction_enabled: bool = false
+- refraction_scale: float = 0.05
+- refraction_texture: Texture2D
+- refraction_texture_channel: int = 0
+- rim: float = 1.0
+- rim_enabled: bool = false
+- rim_texture: Texture2D
+- rim_tint: float = 0.5
+- roughness: float = 1.0
+- roughness_texture: Texture2D
+- roughness_texture_channel: int = 0
+- shading_mode: int = 1
+- shadow_to_opacity: bool = false
+- specular_mode: int = 0
+- stencil_color: Color = Color(0, 0, 0, 1)
+- stencil_compare: int = 0
+- stencil_flags: int = 0
+- stencil_mode: int = 0
+- stencil_outline_thickness: float = 0.01
+- stencil_reference: int = 1
+- subsurf_scatter_enabled: bool = false
+- subsurf_scatter_skin_mode: bool = false
+- subsurf_scatter_strength: float = 0.0
+- subsurf_scatter_texture: Texture2D
+- subsurf_scatter_transmittance_boost: float = 0.0
+- subsurf_scatter_transmittance_color: Color = Color(1, 1, 1, 1)
+- subsurf_scatter_transmittance_depth: float = 0.1
+- subsurf_scatter_transmittance_enabled: bool = false
+- subsurf_scatter_transmittance_texture: Texture2D
+- texture_filter: int = 3
+- texture_repeat: bool = true
+- transparency: int = 0
+- use_fov_override: bool = false
+- use_particle_trails: bool = false
+- use_point_size: bool = false
+- use_z_clip_scale: bool = false
+- uv1_offset: Vector3 = Vector3(0, 0, 0)
+- uv1_scale: Vector3 = Vector3(1, 1, 1)
+- uv1_triplanar: bool = false
+- uv1_triplanar_sharpness: float = 1.0
+- uv1_world_triplanar: bool = false
+- uv2_offset: Vector3 = Vector3(0, 0, 0)
+- uv2_scale: Vector3 = Vector3(1, 1, 1)
+- uv2_triplanar: bool = false
+- uv2_triplanar_sharpness: float = 1.0
+- uv2_world_triplanar: bool = false
+- vertex_color_is_srgb: bool = false
+- vertex_color_use_as_albedo: bool = false
+- z_clip_scale: float = 1.0
+
+**Methods:**
+- get_feature(feature: int) -> bool
+- get_flag(flag: int) -> bool
+- get_texture(param: int) -> Texture2D
+- set_feature(feature: int, enable: bool)
+- set_flag(flag: int, enable: bool)
+- set_texture(param: int, texture: Texture2D)

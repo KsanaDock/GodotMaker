@@ -1,0 +1,126 @@
+## Node <- Object
+
+**Props:**
+- auto_translate_mode: int = 0
+- editor_description: String = ""
+- multiplayer: MultiplayerAPI
+- name: StringName
+- owner: Node
+- physics_interpolation_mode: int = 0
+- process_mode: int = 0
+- process_physics_priority: int = 0
+- process_priority: int = 0
+- process_thread_group: int = 0
+- process_thread_group_order: int
+- process_thread_messages: int
+- scene_file_path: String
+- unique_name_in_owner: bool = false
+
+**Methods:**
+- add_child(node: Node, force_readable_name: bool = false, internal: int = 0)
+- add_sibling(sibling: Node, force_readable_name: bool = false)
+- add_to_group(group: StringName, persistent: bool = false)
+- atr(message: String, context: StringName = "") -> String
+- atr_n(message: String, plural_message: StringName, n: int, context: StringName = "") -> String
+- call_deferred_thread_group(method: StringName) -> Variant
+- call_thread_safe(method: StringName) -> Variant
+- can_auto_translate() -> bool
+- can_process() -> bool
+- create_tween() -> Tween
+- duplicate(flags: int = 15) -> Node
+- find_child(pattern: String, recursive: bool = true, owned: bool = true) -> Node
+- find_children(pattern: String, type: String = "", recursive: bool = true, owned: bool = true) -> Node[]
+- find_parent(pattern: String) -> Node
+- get_accessibility_element() -> RID
+- get_child(idx: int, include_internal: bool = false) -> Node
+- get_child_count(include_internal: bool = false) -> int
+- get_children(include_internal: bool = false) -> Node[]
+- get_groups() -> StringName[]
+- get_index(include_internal: bool = false) -> int
+- get_last_exclusive_window() -> Window
+- get_multiplayer_authority() -> int
+- get_node(path: NodePath) -> Node
+- get_node_and_resource(path: NodePath) -> Array
+- get_node_or_null(path: NodePath) -> Node
+- get_node_rpc_config() -> Variant
+- get_orphan_node_ids() -> int[]
+- get_parent() -> Node
+- get_path() -> NodePath
+- get_path_to(node: Node, use_unique_path: bool = false) -> NodePath
+- get_physics_process_delta_time() -> float
+- get_process_delta_time() -> float
+- get_scene_instance_load_placeholder() -> bool
+- get_tree() -> SceneTree
+- get_tree_string() -> String
+- get_tree_string_pretty() -> String
+- get_viewport() -> Viewport
+- get_window() -> Window
+- has_node(path: NodePath) -> bool
+- has_node_and_resource(path: NodePath) -> bool
+- is_ancestor_of(node: Node) -> bool
+- is_displayed_folded() -> bool
+- is_editable_instance(node: Node) -> bool
+- is_greater_than(node: Node) -> bool
+- is_in_group(group: StringName) -> bool
+- is_inside_tree() -> bool
+- is_multiplayer_authority() -> bool
+- is_node_ready() -> bool
+- is_part_of_edited_scene() -> bool
+- is_physics_interpolated() -> bool
+- is_physics_interpolated_and_enabled() -> bool
+- is_physics_processing() -> bool
+- is_physics_processing_internal() -> bool
+- is_processing() -> bool
+- is_processing_input() -> bool
+- is_processing_internal() -> bool
+- is_processing_shortcut_input() -> bool
+- is_processing_unhandled_input() -> bool
+- is_processing_unhandled_key_input() -> bool
+- move_child(child_node: Node, to_index: int)
+- notify_deferred_thread_group(what: int)
+- notify_thread_safe(what: int)
+- print_orphan_nodes()
+- print_tree()
+- print_tree_pretty()
+- propagate_call(method: StringName, args: Array = [], parent_first: bool = false)
+- propagate_notification(what: int)
+- queue_accessibility_update()
+- queue_free()
+- remove_child(node: Node)
+- remove_from_group(group: StringName)
+- reparent(new_parent: Node, keep_global_transform: bool = true)
+- replace_by(node: Node, keep_groups: bool = false)
+- request_ready()
+- reset_physics_interpolation()
+- rpc(method: StringName) -> int
+- rpc_config(method: StringName, config: Variant)
+- rpc_id(peer_id: int, method: StringName) -> int
+- set_deferred_thread_group(property: StringName, value: Variant)
+- set_display_folded(fold: bool)
+- set_editable_instance(node: Node, is_editable: bool)
+- set_multiplayer_authority(id: int, recursive: bool = true)
+- set_physics_process(enable: bool)
+- set_physics_process_internal(enable: bool)
+- set_process(enable: bool)
+- set_process_input(enable: bool)
+- set_process_internal(enable: bool)
+- set_process_shortcut_input(enable: bool)
+- set_process_unhandled_input(enable: bool)
+- set_process_unhandled_key_input(enable: bool)
+- set_scene_instance_load_placeholder(load_placeholder: bool)
+- set_thread_safe(property: StringName, value: Variant)
+- set_translation_domain_inherited()
+- update_configuration_warnings()
+
+**Signals:**
+- child_entered_tree(node: Node)
+- child_exiting_tree(node: Node)
+- child_order_changed
+- editor_description_changed(node: Node)
+- editor_state_changed
+- ready
+- renamed
+- replacing_by(node: Node)
+- tree_entered
+- tree_exited
+- tree_exiting
