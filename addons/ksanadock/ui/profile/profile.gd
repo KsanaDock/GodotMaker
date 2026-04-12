@@ -29,36 +29,6 @@ var _asset_client: KAssetClient
 @onready var _link_btn: Button = %LinkBtn
 @onready var _language_btn: Button = %LanguageBtn
 
-var _current_lang: String = "zh"
-const LOCALES = {
-	"zh": {
-		"login": " 登录",
-		"sign_out": " 退出",
-		"loading": "加载中...",
-		"no_assets": "暂无资产",
-		"create_more": "在 KsanaDock 创建更多资产",
-		"my_library": "── 我的资产库 ──",
-		"not_connected": "未连接",
-		"animation": "动画",
-		"map": "地图",
-		"item": "道具",
-		"music": "音乐"
-	},
-	"en": {
-		"login": " Login",
-		"sign_out": " Sign Out",
-		"loading": "Loading...",
-		"no_assets": "No assets found",
-		"create_more": "Create more on KsanaDock",
-		"my_library": "── My Assets ──",
-		"not_connected": "Not connected",
-		"animation": "Animation",
-		"map": "Map",
-		"item": "Item",
-		"music": "Music"
-	}
-}
-
 var _active_tab: String = KAssetClient.TYPE_ANIMATION
 var _current_page: int = 1
 var _page_size: int = 8
@@ -67,22 +37,18 @@ var _is_logged_in := false
 
 # Tab 定义
 const TABS := [
-	{"key": KAssetClient.TYPE_ANIMATION, "label": "动画", "icon": "person-standing.svg"},
-	{"key": KAssetClient.TYPE_MAP, "label": "地图", "icon": "map.svg"},
-	{"key": KAssetClient.TYPE_ITEM, "label": "道具", "icon": "sword.svg"},
-	{"key": KAssetClient.TYPE_MUSIC, "label": "音乐", "icon": "music.svg"},
+	{"key": KAssetClient.TYPE_ANIMATION, "icon": "person-standing.svg"},
+	{"key": KAssetClient.TYPE_MAP, "icon": "map.svg"},
+	{"key": KAssetClient.TYPE_ITEM, "icon": "sword.svg"},
+	{"key": KAssetClient.TYPE_MUSIC, "icon": "music.svg"},
 ]
 
 
 func _ready() -> void:
 	name = "Profile"
-	# 自动根据系统语言初始化
-	var system_lang = OS.get_locale_language()
-	if system_lang == "zh":
-		_current_lang = "zh"
-	else:
-		_current_lang = "en"
-		
+	KTranslationManager.initialize()
+	KTranslationManager.add_listener(_on_locale_changed)
+	
 	_apply_theme()
 	_update_ui_localization()
 	_connect_signals()
@@ -149,8 +115,12 @@ func _apply_theme() -> void:
 	_language_btn.add_theme_stylebox_override("pressed", KPalette.flat_box(KPalette.EMERALD_DIM, KPalette.RADIUS_SM))
 
 
+func _on_locale_changed(_lang: String) -> void:
+	_update_ui_localization()
+
+
 func _tr(key: String) -> String:
-	return LOCALES.get(_current_lang, LOCALES["en"]).get(key, key)
+	return KTranslationManager.get_text("profile", key)
 
 
 func _update_ui_localization() -> void:
@@ -168,12 +138,8 @@ func _update_ui_localization() -> void:
 	# 重建 Tabs
 	_build_tabs()
 	
-	# 如果正在加载中，同步更新文字
-	if _loading_label.visible:
-		if _loading_label.text == LOCALES["zh"]["loading"] or _loading_label.text == LOCALES["en"]["loading"]:
-			_loading_label.text = _tr("loading")
-		elif _loading_label.text == LOCALES["zh"]["no_assets"] or _loading_label.text == LOCALES["en"]["no_assets"]:
-			_loading_label.text = _tr("no_assets")
+	# 同步更新加载/状态文字
+	_loading_label.text = _tr("loading")
 
 
 func _build_tabs() -> void:
@@ -203,19 +169,24 @@ func _build_tabs() -> void:
 func _connect_signals() -> void:
 	_auth_btn.pressed.connect(_on_auth_btn_pressed)
 	_language_btn.pressed.connect(_on_language_toggle)
-	_login_btn.pressed.connect(func(): login_requested.emit())
-	_btn_prev.pressed.connect(func(): _change_page(-1))
-	_btn_next.pressed.connect(func(): _change_page(1))
+	_login_btn.pressed.connect(_on_login_requested)
+	_btn_prev.pressed.connect(_change_page.bind(-1))
+	_btn_next.pressed.connect(_change_page.bind(1))
 	_link_btn.add_theme_color_override("font_color", KPalette.TEXT_LINK)
-	_link_btn.pressed.connect(func(): OS.shell_open("https://ksanadock.com/create"))
+	_link_btn.pressed.connect(_on_create_link_pressed)
+
+
+func _on_login_requested() -> void:
+	login_requested.emit()
+
+
+func _on_create_link_pressed() -> void:
+	OS.shell_open("https://ksanadock.com/create")
 
 
 func _on_language_toggle() -> void:
-	if _current_lang == "zh":
-		_current_lang = "en"
-	else:
-		_current_lang = "zh"
-	_update_ui_localization()
+	var new_lang = "en" if KTranslationManager.get_locale() == "zh" else "zh"
+	KTranslationManager.set_locale(new_lang)
 
 
 func _update_user_info() -> void:
@@ -261,12 +232,12 @@ func _update_user_info() -> void:
 	match plan.to_lower():
 		"fun": plan_icon_path = "res://addons/ksanadock/icons/ui/plane.svg"
 		"pro", "founder": plan_icon_path = "res://addons/ksanadock/icons/ui/rocket.svg"
-	_plan_label.text = " Plan: " + plan.capitalize()
+	_plan_label.text = " " + _tr("plan_prefix") + plan.capitalize()
 	_plan_label.icon = load(plan_icon_path)
 	_plan_label.add_theme_constant_override("h_separation", 6)
 
 	var credits: int = user.get("credits", 0)
-	_credits_label.text = " %s credits" % _format_number(credits)
+	_credits_label.text = " %s" % _format_number(credits) + _tr("credits_unit")
 	_credits_label.icon = load("res://addons/ksanadock/icons/ui/coins.svg")
 	_credits_label.add_theme_constant_override("h_separation", 6)
 

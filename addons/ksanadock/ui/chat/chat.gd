@@ -12,7 +12,6 @@ var _bridge: Node # The KsanaDock Bridge instance
 @onready var _scroll: ScrollContainer = %Scroll
 @onready var _input_field: TextEdit = %InputField
 @onready var _send_btn: Button = %SendBtn
-@onready var _model_btn: OptionButton = %ModelBtn
 @onready var _clear_btn: Button = %ClearBtn
 @onready var _ctx_scene_btn: Button = %CtxSceneBtn
 @onready var _ref_list: HBoxContainer = %RefList
@@ -22,14 +21,34 @@ var _current_bubble: PanelContainer = null
 var _is_streaming := false
 var _active_subagents: Dictionary = {} # agentId -> MessageBubble
 var _context_refs: Array[Dictionary] = [] # {type, data, label}
+var _grab_btn: Button
+var _input_normal: StyleBoxFlat
+var _input_focused: StyleBoxFlat
 
 
 func _ready() -> void:
 	name = "Chat"
 	if _scroll:
 		_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	
+	KTranslationManager.initialize()
+	KTranslationManager.add_listener(_on_locale_changed)
+	
 	_apply_theme()
+	_update_ui_localization()
 	_connect_signals()
+
+
+func _on_locale_changed(_lang: String) -> void:
+	_update_ui_localization()
+
+
+func _on_input_focus_entered() -> void:
+	_input_field.add_theme_stylebox_override("normal", _input_focused)
+
+
+func _on_input_focus_exited() -> void:
+	_input_field.add_theme_stylebox_override("normal", _input_normal)
 
 
 func initialize(auth: KAuthClient) -> void:
@@ -39,8 +58,10 @@ func initialize(auth: KAuthClient) -> void:
 	_ai_client.stream_chunk.connect(_on_stream_chunk)
 	_ai_client.stream_done.connect(_on_stream_done)
 	_ai_client.stream_error.connect(_on_stream_error)
+	
 	# 欢迎消息
-	_add_bubble(MessageBubble.Role.AI, "你好！我是 KsanaDock AI 助手 [img=16]res://addons/ksanadock/icons/ui/sparkles.svg[/img]\n有什么可以帮你的？")
+	if _messages.is_empty():
+		_add_bubble(MessageBubble.Role.AI, _tr("welcome"))
 
 
 func _apply_theme() -> void:
@@ -56,18 +77,29 @@ func _apply_theme() -> void:
 	_ctx_scene_btn.add_theme_stylebox_override("normal", KPalette.btn_secondary())
 	_ctx_scene_btn.add_theme_stylebox_override("hover", KPalette.btn_secondary_hover())
 
-	var input_normal := KPalette.input_style_normal()
-	var input_focused := KPalette.input_style_focused()
-	_input_field.add_theme_stylebox_override("normal", input_normal)
+	_input_normal = KPalette.input_style_normal()
+	_input_focused = KPalette.input_style_focused()
+	_input_field.add_theme_stylebox_override("normal", _input_normal)
 	_input_field.add_theme_color_override("font_color", KPalette.TEXT_PRIMARY)
 	_input_field.add_theme_color_override("font_placeholder_color", KPalette.TEXT_DIM)
 	
-	_input_field.focus_entered.connect(func():
-		_input_field.add_theme_stylebox_override("normal", input_focused)
-	)
-	_input_field.focus_exited.connect(func():
-		_input_field.add_theme_stylebox_override("normal", input_normal)
-	)
+	_input_field.focus_entered.connect(_on_input_focus_entered)
+	_input_field.focus_exited.connect(_on_input_focus_exited)
+
+
+func _tr(key: String) -> String:
+	return KTranslationManager.get_text("chat", key)
+
+
+func _update_ui_localization() -> void:
+	if _grab_btn:
+		_grab_btn.text = _tr("grab_output")
+	
+	# 如果只有一条欢迎消息，则尝试刷新欢迎消息的语言
+	if _messages.is_empty() and _msg_list.get_child_count() == 1:
+		var first = _msg_list.get_child(0)
+		if first.has_method("set_message"):
+			first.set_message(_tr("welcome"))
 
 
 func _connect_signals() -> void:
@@ -75,13 +107,13 @@ func _connect_signals() -> void:
 	_clear_btn.pressed.connect(_clear_chat)
 	_ctx_scene_btn.pressed.connect(_attach_scene_context)
 	
-	var grab_btn = Button.new()
-	grab_btn.text = " 引用输出"
-	grab_btn.add_theme_font_size_override("font_size", 11)
-	grab_btn.add_theme_stylebox_override("normal", KPalette.btn_secondary())
-	grab_btn.pressed.connect(_grab_output_selection)
+	_grab_btn = Button.new()
+	_grab_btn.text = _tr("grab_output")
+	_grab_btn.add_theme_font_size_override("font_size", 11)
+	_grab_btn.add_theme_stylebox_override("normal", KPalette.btn_secondary())
+	_grab_btn.pressed.connect(_grab_output_selection)
 	if has_node("%CtxBar"):
-		get_node("%CtxBar").add_child(grab_btn)
+		get_node("%CtxBar").add_child(_grab_btn)
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -137,9 +169,9 @@ func _send_message() -> void:
 	if _bridge and _bridge.has_method("send_chat_to_agent"):
 		_bridge.send_chat_to_agent(text, _on_bridge_response, false)
 	elif _ai_client:
-		_ai_client.send_message(_messages, _model_btn.get_item_text(_model_btn.selected))
+		_ai_client.send_message(_messages)
 	else:
-		_on_stream_done("（AI 客户端未连接）")
+		_on_stream_done(_tr("not_connected"))
 
 
 func add_context_reference(type: String, data: String, meta: Dictionary = {}) -> void:
@@ -175,11 +207,14 @@ func _update_ref_list() -> void:
 		var icon = "📄 " if ref.type == "file" else ("💻 " if ref.type == "code" else "📝 ")
 		btn.text = icon + ref.label + " ✕"
 		btn.add_theme_font_size_override("font_size", 10)
-		btn.pressed.connect(func():
-			_context_refs.remove_at(i)
-			_update_ref_list()
-		)
+		btn.pressed.connect(_on_ref_remove_btn_pressed.bind(i))
 		_ref_list.add_child(btn)
+
+
+func _on_ref_remove_btn_pressed(idx: int) -> void:
+	if idx < _context_refs.size():
+		_context_refs.remove_at(idx)
+		_update_ref_list()
 
 
 func _grab_output_selection() -> void:
@@ -220,11 +255,13 @@ func _add_plan_bubble(data: Dictionary, tool_call_id: String) -> void:
 	bubble.set_script(MessageBubble)
 	bubble.setup_plan(data.get("title", ""), data.get("steps", []))
 	_msg_list.add_child(bubble)
-	bubble.plan_approved.connect(func(auto_run: bool):
-		var msg = "开始全速执行计划。" if auto_run else "开始逐步执行计划。"
-		_send_direct_message(msg, auto_run)
-	)
+	bubble.plan_approved.connect(_on_plan_approved)
 	_scroll_to_bottom()
+
+
+func _on_plan_approved(auto_run: bool) -> void:
+	var msg = _tr("plan_full") if auto_run else _tr("plan_step")
+	_send_direct_message(msg, auto_run)
 
 
 func _send_direct_message(text: String, auto_run: bool = false) -> void:
@@ -284,7 +321,7 @@ func _on_agent_event(params: Dictionary) -> void:
 	elif event_type == "subagent_start":
 		var bubble = PanelContainer.new()
 		bubble.set_script(MessageBubble)
-		bubble.setup_subagent(params.get("title", "Background Task"))
+		bubble.setup_subagent(params.get("title", _tr("bg_task_default")))
 		bubble.append_subagent_log(msg)
 		_msg_list.add_child(bubble)
 		_active_subagents[agent_id] = bubble
@@ -365,7 +402,7 @@ func _clear_chat() -> void:
 func _attach_scene_context() -> void:
 	var scene_root := EditorInterface.get_edited_scene_root()
 	if not scene_root:
-		_input_field.text += "\n[No scene open]"
+		_input_field.text += "\n" + _tr("no_scene")
 		return
 	var tree_text := _dump_tree(scene_root, 0)
 	_input_field.text += "\n--- Scene Tree ---\n" + tree_text

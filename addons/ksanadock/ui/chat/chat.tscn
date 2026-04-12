@@ -51,19 +51,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 13
 text = "KsanaDock AI"
 
-[node name="ModelBtn" type="OptionButton" parent="HeaderBG/Margin/Header"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 11
-item_count = 3
-selected = 0
-popup/item_0/text = "Default"
-popup/item_0/id = 0
-popup/item_1/text = "GPT-4o"
-popup/item_1/id = 1
-popup/item_2/text = "Claude"
-popup/item_2/id = 2
+
 
 [node name="ClearBtn" type="Button" parent="HeaderBG/Margin/Header"]
 unique_name_in_owner = true
