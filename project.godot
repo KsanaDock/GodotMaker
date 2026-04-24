@@ -14,11 +14,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="KsanaDock GameMaker"
+config/name="GodotMaker"
 config/description="AI-assisted development toolkit."
 config/tags=PackedStringArray("ksanadock", "ai", "plugin")
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://addons/ksanadock/icons/logo.png"
+config/icon="res://addons/ksanadock/icons/SmallLogo.png"
 
 [editor_plugins]
 

@@ -1,8 +1,10 @@
-# KsanaDock GameMaker
+# GodotMaker
 
 [简体中文](./README.zh-CN.md) | [English](./README.en.md)
 
-`KsanaDock GameMaker` 是一个面向 Godot 编辑器的 AI 游戏开发助手项目。它把 AI 对话、上下文引用、编辑器桥接和本地 Agent Service 组合在一起，让你可以直接在 Godot 里完成提问、分析、辅助编辑和场景操作。
+![GodotMaker](./addons/ksanadock/icons/GodotMaker.png)
+
+`GodotMaker` 是一个面向 Godot 编辑器的 AI 游戏开发助手项目。它把 AI 对话、上下文引用、编辑器桥接和本地 Agent Service 组合在一起，让你可以直接在 Godot 里完成提问、分析、辅助编辑和场景操作。
 
 ## 项目简介
 
@@ -54,8 +56,8 @@
 ### 1. 获取项目
 
 ```bash
-git clone https://github.com/KsanaDock/GameMaker.git
-cd GameMaker
+git clone https://github.com/KsanaDock/GodotMaker.git
+cd GodotMaker
 ```
 
 ### 2. 安装 Agent Service 依赖
@@ -138,7 +140,7 @@ Bridge 已暴露一组 Godot 编辑器操作接口，供 Agent 执行例如：
 ## 目录结构
 
 ```text
-GameMaker/
+GodotMaker/
 ├─ addons/
 │  ├─ ksanadock/
 │  │  ├─ api/
@@ -164,7 +166,7 @@ GameMaker/
 
 ## 开源说明
 
-- 仓库地址：<https://github.com/KsanaDock/GameMaker.git>
+- 仓库地址：<https://github.com/KsanaDock/GodotMaker.git>
 - 许可证：MIT
 
 ## 致谢

@@ -1,8 +1,10 @@
-# KsanaDock GameMaker
+# GodotMaker
 
 [简体中文](./README.zh-CN.md) | [English](./README.en.md)
 
-`KsanaDock GameMaker` is an AI-assisted development toolkit for the Godot Editor. It combines in-editor chat, context capture, editor bridging, and a local agent service so you can ask questions, pass project context, and trigger editor-side actions without leaving Godot.
+![GodotMaker](./addons/ksanadock/icons/GodotMaker.png)
+
+`GodotMaker` is an AI-assisted development toolkit for the Godot Editor. It combines in-editor chat, context capture, editor bridging, and a local agent service so you can ask questions, pass project context, and trigger editor-side actions without leaving Godot.
 
 ## Overview
 
@@ -54,8 +56,8 @@ If `npx tsx` is not available in your environment, install the required dependen
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/KsanaDock/GameMaker.git
-cd GameMaker
+git clone https://github.com/KsanaDock/GodotMaker.git
+cd GodotMaker
 ```
 
 ### 2. Install agent service dependencies
@@ -138,7 +140,7 @@ The bridge already exposes a set of Godot editor operations that the agent can c
 ## Project Structure
 
 ```text
-GameMaker/
+GodotMaker/
 ├─ addons/
 │  ├─ ksanadock/
 │  │  ├─ api/
@@ -164,7 +166,7 @@ GameMaker/
 
 ## Open Source
 
-- Repository: <https://github.com/KsanaDock/GameMaker.git>
+- Repository: <https://github.com/KsanaDock/GodotMaker.git>
 - License: MIT
 
 ## Acknowledgements
