@@ -2,7 +2,7 @@
 
 [简体中文](./README.zh-CN.md) | [English](./README.en.md)
 
-![GodotMaker](./addons/ksanadock/icons/GodotMaker.png)
+![GodotMaker](./addons/godot_maker/icons/GodotMaker.png)
 
 `GodotMaker` 是一个面向 Godot 编辑器的 AI 游戏开发助手项目。它把 AI 对话、上下文引用、编辑器桥接和本地 Agent Service 组合在一起，让你可以直接在 Godot 里完成提问、分析、辅助编辑和场景操作。
 
@@ -36,8 +36,8 @@
 
 ## 当前状态
 
-- 插件版本：`KsanaDock 0.1.0`
-- Bridge 版本：`KsanaDock Bridge 0.1`
+- 插件版本：`GodotMaker 0.1.0`
+- Bridge 版本：`GodotMaker Bridge 0.1`
 - 项目处于早期阶段，接口、配置方式和启动流程仍可能继续调整
 - 当前 Bridge 的自动启动逻辑基于 `cmd.exe`，现阶段更适合在 Windows 环境中使用
 
@@ -56,7 +56,7 @@
 ### 1. 获取项目
 
 ```bash
-git clone https://github.com/KsanaDock/GodotMaker.git
+git clone https://github.com/GodotMaker/GodotMaker.git
 cd GodotMaker
 ```
 
@@ -83,14 +83,14 @@ npm install
 
 项目默认启用了以下两个编辑器插件：
 
-- `res://addons/ksanadock/plugin.cfg`
+- `res://addons/godot_maker/plugin.cfg`
 - `res://addons/ksanadock_bridge/plugin.cfg`
 
 如果你是将插件手动集成到自己的 Godot 项目中，请确认这两个插件都已启用。
 
 ### 5. 启动与连接
 
-打开项目后，`KsanaDock Bridge` 会尝试自动：
+打开项目后，`GodotMaker Bridge` 会尝试自动：
 
 - 启动本地 Agent Service
 - 监听本地 `9080` 端口
@@ -166,7 +166,7 @@ GodotMaker/
 
 ## 开源说明
 
-- 仓库地址：<https://github.com/KsanaDock/GodotMaker.git>
+- 仓库地址：<https://github.com/GodotMaker/GodotMaker.git>
 - 许可证：MIT
 
 ## 致谢

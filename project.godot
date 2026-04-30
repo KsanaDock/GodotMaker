@@ -16,13 +16,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="GodotMaker"
 config/description="AI-assisted development toolkit."
-config/tags=PackedStringArray("ksanadock", "ai", "plugin")
+config/tags=PackedStringArray("godot_maker", "ai", "plugin")
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://addons/ksanadock/icons/SmallLogo.png"
+config/icon="res://addons/godot_maker/icons/SmallLogo.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ksanadock/plugin.cfg", "res://addons/ksanadock_bridge/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_maker/plugin.cfg", "res://addons/ksanadock_bridge/plugin.cfg")
 
 [rendering]
 

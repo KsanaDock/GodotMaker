@@ -2,7 +2,7 @@
 
 [简体中文](./README.zh-CN.md) | [English](./README.en.md)
 
-![GodotMaker](./addons/ksanadock/icons/GodotMaker.png)
+![GodotMaker](./addons/godot_maker/icons/GodotMaker.png)
 
 `GodotMaker` is an AI-assisted development toolkit for the Godot Editor. It combines in-editor chat, context capture, editor bridging, and a local agent service so you can ask questions, pass project context, and trigger editor-side actions without leaving Godot.
 
@@ -10,11 +10,12 @@
 
 This repository currently includes three main parts:
 
-- `addons/ksanadock`
+- `addons/godot_maker`
 	- Provides the chat dock, login UI, profile UI, output capture, and context collection
 - `addons/ksanadock_bridge`
 	- Runs as a Godot editor plugin, starts the local WebSocket bridge, and communicates with the agent service
 - `addons/ksanadock_bridge/service`
+
 	- A Node.js-based agent service responsible for the agent loop, tool registration, skill loading, and task execution
 
 ## Key Features
@@ -36,8 +37,8 @@ This repository currently includes three main parts:
 
 ## Status
 
-- Plugin version: `KsanaDock 0.1.0`
-- Bridge version: `KsanaDock Bridge 0.1`
+- Plugin version: `GodotMaker 0.1.0`
+- Bridge version: `GodotMaker Bridge 0.1`
 - The project is still in an early stage, so APIs, configuration, and startup flow may continue to evolve
 - The current auto-start logic for the bridge is based on `cmd.exe`, so the present setup is primarily suited for Windows
 
@@ -56,7 +57,7 @@ If `npx tsx` is not available in your environment, install the required dependen
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/KsanaDock/GodotMaker.git
+git clone https://github.com/GodotMaker/GodotMaker.git
 cd GodotMaker
 ```
 
@@ -83,14 +84,14 @@ Open the repository root and load `project.godot` with Godot.
 
 The project already enables these two editor plugins by default:
 
-- `res://addons/ksanadock/plugin.cfg`
+- `res://addons/godot_maker/plugin.cfg`
 - `res://addons/ksanadock_bridge/plugin.cfg`
 
 If you are integrating the plugin into your own Godot project, make sure both plugins are enabled.
 
 ### 5. Start and connect
 
-After the project opens, `KsanaDock Bridge` will try to automatically:
+After the project opens, `GodotMaker Bridge` will try to automatically:
 
 - Start the local agent service
 - Listen on local port `9080`
@@ -166,7 +167,7 @@ GodotMaker/
 
 ## Open Source
 
-- Repository: <https://github.com/KsanaDock/GodotMaker.git>
+- Repository: <https://github.com/GodotMaker/GodotMaker.git>
 - License: MIT
 
 ## Acknowledgements

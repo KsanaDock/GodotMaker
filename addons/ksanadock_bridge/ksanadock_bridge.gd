@@ -1,7 +1,7 @@
 @tool
 extends EditorPlugin
 
-## KsanaDock Bridge — Godot 4.x 编辑器插件
+## GodotMaker Bridge — Godot 4.x 编辑器插件
 ##
 ## 作为 WebSocket Server 监听 9080 端口。
 ## 接收来自 Agent Service 的 JSON-RPC 指令并执行。
@@ -31,9 +31,9 @@ func _enter_tree() -> void:
     _server = TCPServer.new()
     var err = _server.listen(PORT)
     if err != OK:
-        printerr("[KsanaDock Bridge] Failed to listen on port ", PORT)
+        printerr("[GodotMaker Bridge] Failed to listen on port ", PORT)
     else:
-        print("[KsanaDock Bridge] Listening on port ", PORT)
+        print("[GodotMaker Bridge] Listening on port ", PORT)
         # 启动定时轮询
         set_process(true)
     
@@ -52,7 +52,7 @@ func _exit_tree() -> void:
         _server.stop()
     for client in _clients:
         client.close()
-    print("[KsanaDock Bridge] Stopped.")
+    print("[GodotMaker Bridge] Stopped.")
 
 func _process(_delta: float) -> void:
     # 轮询日志
@@ -64,7 +64,7 @@ func _process(_delta: float) -> void:
         var ws_peer = WebSocketPeer.new()
         ws_peer.accept_stream(peer)
         _clients.append(ws_peer)
-        print("[KsanaDock Bridge] New agent connected.")
+        print("[GodotMaker Bridge] New agent connected.")
 
     # 处理现有连接
     var to_remove = []
@@ -87,7 +87,7 @@ func _process(_delta: float) -> void:
 
 func _handle_message(client: WebSocketPeer, message: String) -> void:
     if DEBUG_MODE:
-        print("[KsanaDock Bridge] RAW RECEIVE: ", message)
+        print("[GodotMaker Bridge] RAW RECEIVE: ", message)
         
     var json = JSON.new()
     var err = json.parse(message)
@@ -126,7 +126,7 @@ func _handle_message(client: WebSocketPeer, message: String) -> void:
         agent_reply.emit(params)
         return
 
-    print("[KsanaDock Bridge] Received method: ", method)
+    print("[GodotMaker Bridge] Received method: ", method)
 
     match method:
         "ping":
@@ -208,7 +208,7 @@ func get_agent_history(callback: Callable) -> void:
     _clients[0].send_text(JSON.stringify(request))
 
 func restart_service() -> void:
-    print("[KsanaDock Bridge] Restarting Agent service...")
+    print("[GodotMaker Bridge] Restarting Agent service...")
     _stop_agent_service()
     # Wait a bit for the port to be released
     await get_tree().create_timer(1.0).timeout
@@ -251,10 +251,10 @@ func _start_agent_service() -> void:
             agent_dir = dev_path
 
     if agent_dir == "" or not DirAccess.dir_exists_absolute(agent_dir):
-        printerr("[KsanaDock Bridge] Agent service directory not found. Please set 'ksanadock/agent/service_path' in Project Settings.")
+        printerr("[GodotMaker Bridge] Agent service directory not found. Please set 'ksanadock/agent/service_path' in Project Settings.")
         return
 
-    print("[KsanaDock Bridge] Using agent service at: ", agent_dir)
+    print("[GodotMaker Bridge] Using agent service at: ", agent_dir)
 
     # 准备日志文件以便轮询 (移动到 user:// 目录以避开 Godot 的资源扫描器)
     _log_path = ProjectSettings.globalize_path("user://ksanadock_agent.log")
@@ -265,15 +265,15 @@ func _start_agent_service() -> void:
     var cmd_str = "cd /d \"" + agent_dir + "\" && npx tsx src/index.ts --project-root \"" + project_dir + "\""
     if DEBUG_MODE:
         cmd_str += " > \"" + _log_path + "\" 2>&1"
-        print("[KsanaDock Bridge] Starting service with command: ", cmd_str)
+        print("[GodotMaker Bridge] Starting service with command: ", cmd_str)
     
     var args = ["/c", cmd_str]
     _agent_pid = OS.create_process("cmd.exe", args, false)
     
     if _agent_pid != -1:
-        print("[KsanaDock Bridge] Agent service started with PID: ", _agent_pid)
+        print("[GodotMaker Bridge] Agent service started with PID: ", _agent_pid)
     else:
-        printerr("[KsanaDock Bridge] Failed to start Agent service.")
+        printerr("[GodotMaker Bridge] Failed to start Agent service.")
 
 func _poll_logs() -> void:
     if _log_path == "" or not DEBUG_MODE:
@@ -300,25 +300,25 @@ func _poll_logs() -> void:
 
 func _stop_agent_service() -> void:
     if _agent_pid != -1:
-        print("[KsanaDock Bridge] Stopping Agent service (PID: ", _agent_pid, ")")
+        print("[GodotMaker Bridge] Stopping Agent service (PID: ", _agent_pid, ")")
         OS.kill(_agent_pid)
         _agent_pid = -1
 
 func _handle_rpc_result(id: Variant, result: Variant) -> void:
     var id_str = str(id)
     if DEBUG_MODE:
-        print("[KsanaDock Bridge] Handling result for ID: ", id_str, ", Results: ", result)
+        print("[GodotMaker Bridge] Handling result for ID: ", id_str, ", Results: ", result)
         
     if _pending_requests.has(id_str):
         var cb = _pending_requests[id_str]
         cb.call(result)
         _pending_requests.erase(id_str)
     else:
-        printerr("[KsanaDock Bridge] Warning: Received result for unknown ID: ", id_str, ". Pending: ", _pending_requests.keys())
+        printerr("[GodotMaker Bridge] Warning: Received result for unknown ID: ", id_str, ". Pending: ", _pending_requests.keys())
 
 func _handle_rpc_error(id: Variant, error: Variant) -> void:
     var id_str = str(id)
-    printerr("[KsanaDock Bridge] RPC error for ID: ", id_str, ": ", error)
+    printerr("[GodotMaker Bridge] RPC error for ID: ", id_str, ": ", error)
     if _pending_requests.has(id_str):
         var cb = _pending_requests[id_str]
         cb.call({"error": error})
