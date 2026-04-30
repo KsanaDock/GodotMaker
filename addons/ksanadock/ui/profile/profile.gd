@@ -55,6 +55,8 @@ func _ready() -> void:
 
 
 func initialize(auth: KAuthClient) -> void:
+	if not is_node_ready():
+		await ready
 	_auth = auth
 	_asset_client = KAssetClient.new(_auth)
 	_asset_client.assets_loaded.connect(_on_assets_loaded)
@@ -256,6 +258,8 @@ func _on_tab_pressed(btn: Button) -> void:
 
 
 func _load_tab(asset_type: String) -> void:
+	if not is_instance_valid(_asset_grid):
+		return
 	# 切换或翻页都会清空旧内容
 	for c in _asset_grid.get_children():
 		c.queue_free()
@@ -284,6 +288,8 @@ func _on_load_failed(_type: String, error: String) -> void:
 ## 切换右上角按钮为 登录/登出 模式
 func _set_auth_btn_mode(logged_in: bool) -> void:
 	_is_logged_in = logged_in
+	if not is_instance_valid(_auth_btn):
+		return
 	if logged_in:
 		_auth_btn.text = _tr("sign_out")
 		_auth_btn.icon = load("res://addons/ksanadock/icons/ui/log-out.svg")
